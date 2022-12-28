@@ -14,4 +14,7 @@ func main() {
 	var i int
 
 	fmt.Println(c, cpp, java, python, golang, i)
+
+	s := "Hello"
+	fmt.Println(len(s))
 }

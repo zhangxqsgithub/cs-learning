@@ -27,4 +27,8 @@ func main() {
 	var z uint = uint(f)
 	fmt.Println(x, y, z)
 
+	var num int = 10
+	var numstr string = fmt.Sprint(num)
+	fmt.Println(numstr)
+
 }

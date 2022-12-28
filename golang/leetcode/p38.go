@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // 外观数列
 // Link https://leetcode.cn/problems/count-and-say/
 func countAndSay(n int) string {
@@ -39,5 +41,20 @@ func countAndSay(n int) string {
 }
 
 func countAndSay2(n int) string {
-	return ""
+	s := "1"
+	for i := 0; i < n-1; i++ {
+		t := ""
+		// 找到前面相同的字符
+		for j := 0; j < len(s); {
+			k := j + 1
+			for k < len(s) && s[k] == s[j] {
+				k++
+			}
+			t += fmt.Sprint(k-j, s[j])
+			j = k
+		}
+		s = t
+	}
+
+	return s
 }
