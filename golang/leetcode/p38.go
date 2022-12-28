@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"strconv"
+	"strings"
+)
 
 // 外观数列
 // Link https://leetcode.cn/problems/count-and-say/
@@ -43,17 +46,18 @@ func countAndSay(n int) string {
 func countAndSay2(n int) string {
 	s := "1"
 	for i := 0; i < n-1; i++ {
-		t := ""
+		t := &strings.Builder{}
 		// 找到前面相同的字符
 		for j := 0; j < len(s); {
 			k := j + 1
 			for k < len(s) && s[k] == s[j] {
 				k++
 			}
-			t += fmt.Sprint(k-j, s[j])
+			t.WriteString(strconv.Itoa(k - j))
+			t.WriteByte(s[j])
 			j = k
 		}
-		s = t
+		s = t.String()
 	}
 
 	return s
