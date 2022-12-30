@@ -33,4 +33,8 @@ func main() {
 	l.PushBack(1)
 	l.PushBack("xxx")
 	fmt.Println(l)
+
+	// 删除数组中最后一个元素
+	arr3 := []int{1, 2, 3}
+	fmt.Println(arr3[0 : len(arr3)-1])
 }
