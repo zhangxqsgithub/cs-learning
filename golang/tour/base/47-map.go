@@ -25,4 +25,9 @@ func main() {
 	}
 	fmt.Println(m["Bell Labs"])
 
+	// 初始化一个 map
+	mp := map[int]bool{}
+	mp[1] = false
+	fmt.Println(mp[1])
+
 }

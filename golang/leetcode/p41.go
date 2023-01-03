@@ -7,7 +7,7 @@ import "math"
 func firstMissingPositive(nums []int) int {
 
 	// 把所有的数放到 map 中
-	mp := make(map[int]bool)
+	mp := map[int]bool{}
 	for _, v := range nums {
 		mp[v] = true
 	}
