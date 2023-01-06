@@ -37,8 +37,14 @@ fn main() {
     println!("p1: {:?}", p1);
     println!("p2: {:?}", p2);
 
-    let p3: P2D = P2D{x: 1, y: 23};
+    let mut p3: P2D = P2D{x: 1, y: 23};
+    let mut p4: P2D = p3.clone();
     println!("{p3:?}");
+    println!("{p4:?}");
+    p4.x = 100;
+    p4.y = 99;
+    println!("{p3:?}");
+    println!("{p4:?}");
 }
 
 // You can opt-in your own types to use copy semantics:
