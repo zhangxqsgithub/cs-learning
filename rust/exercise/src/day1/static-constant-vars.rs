@@ -1,9 +1,12 @@
 const DIGEST_SIZE: usize = 5;
 const ZERO: Option<u8> = Some(42);
+static BANNER: &str = "Welcome to Rust 1.66";
 
 fn main() {
     let digest = compute_digest("Hello");
     println!("Digest: {:?}", digest);
+
+    println!("{}", BANNER);
 }
 
 fn compute_digest(text: &str) -> [u8; DIGEST_SIZE] {
