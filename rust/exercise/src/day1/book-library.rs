@@ -73,8 +73,7 @@ impl Library {
 
     // TODO: error in there
     fn oldest_book(self) -> Option<&Book> {
-        if self.books.len() == 0 { None } 
-        else { Some(self.books[0]) }
+        self.books.first()
     }
 }
 
