@@ -1,3 +1,4 @@
+// 雪花算法
 fn main() {              // Program entry point
     let mut x: i32 = 19;  // Mutable variable binding
     print!("{x}");       // Macro for printing, like printf
