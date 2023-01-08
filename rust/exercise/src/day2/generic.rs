@@ -6,6 +6,13 @@ fn main() {
     let integer = Point { x: 5, y: 10 };
     let float = Point { x: 1.0, y: 4.0 };
     println!("{integer:?} and {float:?}");
+
+    let p = Point{x: 5, y: 10};
+    println!("p.x = {}, p.y = {}", p.x(), p.y());
+
+    let foo = String::from("foo");
+    let pair = duplicate(foo);
+    println!("{pair:?}");
 }
 
 #[derive(Debug)]
@@ -14,4 +21,17 @@ struct Point<T> {
     y: T,
 }
 
+// 定义范型的方法实现
+impl<T> Point<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+    fn y(&self) -> &T {
+        &self.y
+    }
+}
 
+// 限制范型 T 必须实现 Clone
+fn duplicate<T: Clone>(a: T) -> (T, T) {
+    (a.clone(), a.clone())
+}
