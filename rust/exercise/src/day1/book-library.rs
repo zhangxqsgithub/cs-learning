@@ -2,7 +2,7 @@
 // implement the missing methods. You will need to update the
 // method signatures, including the "self" parameter!
 fn main() {
-    let library = Library::new();
+    let mut library = Library::new();
 
     println!("Our library is empty: {}", library.is_empty());
     
@@ -47,33 +47,29 @@ struct Library {
 
 impl Library {
     fn new() -> Library {
-        Library{
-            books: vec![],
-        }
+        Library { books: vec![] }
     }
 
-    fn len(self) -> usize {
+    fn len(&self) -> usize {
         self.books.len()
     }
 
-    fn is_empty(self) -> bool {
+    fn is_empty(&self) -> bool {
         self.len() == 0
     }
 
-    fn add_book(self, book: Book) {
+    fn add_book(&mut self, book: Book) {
         self.books.push(book);
     }
 
-    fn print_books(self) {
-        for itm in self.books.iter() {
-            println!("{itm}");
+    fn print_books(&self) {
+        for book in &self.books {
+            println!("{book}");
         }
     }
 
-
-    // TODO: error in there
-    fn oldest_book(self) -> Option<&Book> {
-        self.books.first()
+    fn oldest_book(&self) -> Option<&Book> {
+        self.books.iter().min_by_key(|book| book.year)
     }
 }
 
