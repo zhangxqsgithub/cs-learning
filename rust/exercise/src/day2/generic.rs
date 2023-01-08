@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 fn main() {
     // 不用类型推断
     // let integer: Point<i32> = Point { x: 5, y: 10 };
@@ -13,6 +15,12 @@ fn main() {
     let foo = String::from("foo");
     let pair = duplicate(foo);
     println!("{pair:?}");
+    
+    // 声明 Vector 数组，范型为 Box 的并实现了 Display
+    let xs: Vec<Box<dyn Display>> = vec![Box::new(123), Box::new("Hello")];
+    for x in xs {
+        println!("x: {x}");
+    }
 }
 
 #[derive(Debug)]
