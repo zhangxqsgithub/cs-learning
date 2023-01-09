@@ -46,7 +46,16 @@ fn func_demo() {
         let x = 100;
         a + x + 1
     };
-    println!("{a}, {b}")
+    println!("{a}, {b}");
+
+    /*
+    有返回值的方法
+    调用 five 后方法内返回值会复制出来，方法内的返回值就丢弃了（内存空间释放了）
+     */
+    let five = five();
+    println!("{five}");
+
+    println!("{}", plus_one(100));
 }
 
 fn func1() {
@@ -59,4 +68,12 @@ fn func2(x: i32) {
 
 fn func3(val: i32, unit_label: char) {
     println!("The measurement is: {val}{unit_label}");
+}
+
+fn five() -> i32 {
+    5
+}
+
+fn plus_one(x: i32) -> i32 {
+    return x + 1;
 }
