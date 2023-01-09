@@ -6,6 +6,8 @@ fn main() {
     println!("Please input your guess.");
 
     let some: String = String::from("x");   // 不可被修改
+    // new 是一个 String 结构体那定义的常量方法 pub const fn new() {...}
+    // 访问常量方法仍需使用 :: 运算符
     let mut guess: String = String::new();  // 可被修改
 
     // :: 是某个包下访问某个自定义的方法，例如 std::io::stdin() 就是调用 io 包下的 stdin 静态
