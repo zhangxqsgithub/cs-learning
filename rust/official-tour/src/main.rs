@@ -5,7 +5,8 @@ fn main() {
 
     println!("Please input your guess.");
 
-    let mut guess: String = String::new();
+    let some: String = String::from("x");   // 不可被修改
+    let mut guess: String = String::new(); // 可被修改
 
     io::stdin()
         .read_line(&mut guess)
