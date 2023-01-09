@@ -1,5 +1,7 @@
 use std::io;
 
+pub mod lib;
+
 fn main() {
     func_demo();
 }
