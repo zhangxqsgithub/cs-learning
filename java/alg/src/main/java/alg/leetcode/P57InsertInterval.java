@@ -10,7 +10,7 @@ import java.util.List;
  * @link https://leetcode.cn/problems/insert-interval/
  * @since 2023/1/11
  */
-public class P57A {
+public class P57InsertInterval {
     
     public int[][] insert(int[][] a, int[] b) {
         List<int[]> list = new ArrayList<>();
