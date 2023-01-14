@@ -10,7 +10,7 @@ import java.util.List;
  * @link https://leetcode.cn/problems/text-justification/
  * @since 2023/1/14
  */
-public class P68 {
+public class P68TextJustification {
     
     public static void main(String[] args) {
     
