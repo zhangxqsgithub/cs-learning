@@ -80,13 +80,15 @@ func TestBasic(t *testing.T) {
 
 	e := rn.MakeEnd("end1-99")
 
+	// 创建一个 service
 	js := &JunkServer{}
 	svc := MakeService(js)
 
+	// 创建一个 server 并将 service 加入 server 中
 	rs := MakeServer()
 	rs.AddService(svc)
 	rn.AddServer("server99", rs)
-
+	// 连接
 	rn.Connect("end1-99", "server99")
 	rn.Enable("end1-99", true)
 
