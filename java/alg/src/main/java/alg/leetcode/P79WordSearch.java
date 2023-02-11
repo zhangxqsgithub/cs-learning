@@ -8,14 +8,13 @@ package alg.leetcode;
  * @since 2023/1/15
  */
 public class P79WordSearch {
-    
+
     public static void main(String[] args) {
-    
     }
-    
+
     public boolean exist(char[][] board, String word) {
-        
+
         return false;
     }
-    
+
 }

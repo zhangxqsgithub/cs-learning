@@ -51,7 +51,6 @@ package labrpc
 
 import (
 	"bytes"
-	"fmt"
 	"log"
 	"math/rand"
 	"reflect"
@@ -139,6 +138,7 @@ type Network struct {
 	done           chan struct{} // closed when Network is cleaned up
 	count          int32         // total RPC count, for statistics
 	bytes          int64         // total bytes send, for statistics
+	perRpcCnt      map[string]int
 }
 
 func MakeNetwork() *Network {
@@ -150,6 +150,7 @@ func MakeNetwork() *Network {
 	rn.connections = map[interface{}](interface{}){}
 	rn.endCh = make(chan reqMsg)
 	rn.done = make(chan struct{})
+	rn.perRpcCnt = map[string]int{}
 
 	// single goroutine to handle all ClientEnd.Call()s
 	go func() {
@@ -158,6 +159,7 @@ func MakeNetwork() *Network {
 			case xreq := <-rn.endCh:
 				atomic.AddInt32(&rn.count, 1)
 				atomic.AddInt64(&rn.bytes, int64(len(xreq.args)))
+				rn.perRpcCnt[xreq.svcMeth]++
 				go rn.processReq(xreq)
 			case <-rn.done:
 				return
@@ -383,6 +385,10 @@ func (rn *Network) GetTotalBytes() int64 {
 	return x
 }
 
+func (rn *Network) GetPerRPC() map[string]int {
+	return rn.perRpcCnt
+}
+
 // a server is a collection of services, all sharing
 // the same rpc dispatcher. so that e.g. both a Raft
 // and a k/v server can listen to the same rpc endpoint.
@@ -458,8 +464,8 @@ func MakeService(rcvr interface{}) *Service {
 		mtype := method.Type
 		mname := method.Name
 
-		fmt.Printf("%v pp %v ni %v 1k %v 2k %v no %v\n",
-			mname, method.PkgPath, mtype.NumIn(), mtype.In(1).Kind(), mtype.In(2).Kind(), mtype.NumOut())
+		// fmt.Printf("%v pp %v ni %v 1k %v 2k %v no %v\n",
+		// 	mname, method.PkgPath, mtype.NumIn(), mtype.In(1).Kind(), mtype.In(2).Kind(), mtype.NumOut())
 
 		if method.PkgPath != "" || // capitalized?
 			mtype.NumIn() != 3 ||
@@ -467,7 +473,7 @@ func MakeService(rcvr interface{}) *Service {
 			mtype.In(2).Kind() != reflect.Ptr ||
 			mtype.NumOut() != 0 {
 			// the method is not suitable for a handler
-			fmt.Printf("bad method: %v\n", mname)
+			// fmt.Printf("bad method: %v\n", mname)
 		} else {
 			// the method looks like a handler
 			svc.methods[mname] = method

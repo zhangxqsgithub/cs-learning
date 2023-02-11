@@ -69,26 +69,20 @@ func (js *JunkServer) Handler7(args int, reply *string) {
 }
 
 func TestBasic(t *testing.T) {
-	fmt.Println("开始测试")
-
-	// 设置有几个 CPU 同时执行
 	runtime.GOMAXPROCS(4)
 
-	// 创建一个网络
 	rn := MakeNetwork()
 	defer rn.Cleanup()
 
 	e := rn.MakeEnd("end1-99")
 
-	// 创建一个 service
 	js := &JunkServer{}
 	svc := MakeService(js)
 
-	// 创建一个 server 并将 service 加入 server 中
 	rs := MakeServer()
 	rs.AddService(svc)
 	rn.AddServer("server99", rs)
-	// 连接
+
 	rn.Connect("end1-99", "server99")
 	rn.Enable("end1-99", true)
 
