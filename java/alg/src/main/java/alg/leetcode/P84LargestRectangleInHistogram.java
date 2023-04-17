@@ -22,34 +22,29 @@ public class P84LargestRectangleInHistogram {
      * 6 ～ 1 的的最大值为 3
      * 最大值的计算为 ( cur - left - 1 ) * min(cur, left)
      */
-    public static int largestRectangleArea(int[] heights) {
-        int n = heights.length;
-        int[] left = new int[n];
-        int[] right = new int[n];
+    public static int largestRectangleArea(int[] h) {
+        int n = h.length;
+        int[] left = new int[n], right = new int[n];
         
         // 单调栈
-        Deque<Integer> monoStack = new ArrayDeque<>();
-        for (int i = 0; i < n; ++i) {
-            while (!monoStack.isEmpty() && heights[monoStack.peek()] >= heights[i]) {
-                monoStack.pop();
-            }
-            left[i] = (monoStack.isEmpty() ? -1 : monoStack.peek());
-            monoStack.push(i);
+        Deque<Integer> s = new ArrayDeque<>();
+        for (int i = 0; i < n; i++) {
+            while (!s.isEmpty() && h[s.peek()] >= h[i]) s.pop();
+            left[i] = (s.isEmpty() ? -1 : s.peek());
+            s.push(i);
         }
-        monoStack.clear(); // 清空栈
-        for (int i = n - 1; i >= 0; --i) {
-            while (!monoStack.isEmpty() && heights[monoStack.peek()] >= heights[i]) {
-                monoStack.pop();
-            }
-            right[i] = (monoStack.isEmpty() ? n : monoStack.peek());
-            monoStack.push(i);
+        s.clear(); // 清空栈
+        for (int i = n - 1; i >= 0; i--) {
+            while (!s.isEmpty() && h[s.peek()] >= h[i]) s.pop();
+            right[i] = (s.isEmpty() ? n : s.peek());
+            s.push(i);
         }
         
-        int ans = 0;
-        for (int i = 0; i < n; ++i) {
-            ans = Math.max(ans, (right[i] - left[i] - 1) * heights[i]);
+        int res = 0;
+        for (int i = 0; i < n; i++) {
+            res = Math.max(res, (right[i] - left[i] - 1) * h[i]);
         }
-        return ans;
+        return res;
     }
     
 }
