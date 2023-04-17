@@ -10,20 +10,21 @@ public class P80RemoveDuplicatesFromSortedArrayII {
     public static void main(String[] args) {
         P80RemoveDuplicatesFromSortedArrayII s1 = new P80RemoveDuplicatesFromSortedArrayII();
         
-        int[] nums1 = {1, 1, 2, 2, 3, 3, 4};
+        int[] nums1 = {1, 1, 1, 2, 2, 3, 3, 4};
         int res1 = s1.removeDuplicates(nums1);
         System.out.println(res1);
     }
     
     public int removeDuplicates(int[] nums) {
-        int n = nums.length;
-        int j = 0;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] != nums[j]) {
-                nums[++j] = nums[i];
+        if (nums.length < 3) return nums.length;
+        int k = 1;
+        for (int i = 2; i < nums.length; i++) {
+            // 如果当前数不等于 nums[k] 且不等于 nums[k−1]
+            if(nums[i] != nums[k - 1]) {
+                nums[++k] = nums[i];
             }
         }
-        return j + 1;
+        return k + 1;
     }
     
 }
