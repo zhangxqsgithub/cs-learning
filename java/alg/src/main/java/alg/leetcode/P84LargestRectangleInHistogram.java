@@ -24,25 +24,26 @@ public class P84LargestRectangleInHistogram {
      */
     public static int largestRectangleArea(int[] h) {
         int n = h.length;
-        int[] left = new int[n], right = new int[n];
+        int[] l = new int[n], r = new int[n];
         
         // 单调栈
         Deque<Integer> s = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
+            // 只要有前一个数比后面一个数大，就可以把它删掉
             while (!s.isEmpty() && h[s.peek()] >= h[i]) s.pop();
-            left[i] = (s.isEmpty() ? -1 : s.peek());
+            l[i] = (s.isEmpty() ? -1 : s.peek());
             s.push(i);
         }
         s.clear(); // 清空栈
         for (int i = n - 1; i >= 0; i--) {
             while (!s.isEmpty() && h[s.peek()] >= h[i]) s.pop();
-            right[i] = (s.isEmpty() ? n : s.peek());
+            r[i] = (s.isEmpty() ? n : s.peek());
             s.push(i);
         }
         
         int res = 0;
         for (int i = 0; i < n; i++) {
-            res = Math.max(res, (right[i] - left[i] - 1) * h[i]);
+            res = Math.max(res, (r[i] - l[i] - 1) * h[i]);
         }
         return res;
     }
