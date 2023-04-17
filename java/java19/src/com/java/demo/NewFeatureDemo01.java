@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
  * @author zhangxq
  * @since 2022/9/26
  */
-public class Demo01 {
+public class NewFeatureDemo01 {
     
     public static void main(String[] args) {
         System.out.println("Hello Java 19!");
