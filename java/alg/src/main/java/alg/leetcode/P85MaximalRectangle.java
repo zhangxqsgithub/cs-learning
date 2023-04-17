@@ -23,8 +23,8 @@ public class P85MaximalRectangle {
         // 保存以当前数字结尾的连续 1 的个数
         int[][] dp = new int[m][n];
         int maxArea = 0;
-        for (int row = 0; row < m; ++row) {
-            for (int col = 0; col < n; ++col) {
+        for (int row = 0; row < m; row++) {
+            for (int col = 0; col < n; col++) {
                 // 遇到 0 啥也不是
                 if (matrix[row][col] == '0') continue;
                 
@@ -34,11 +34,11 @@ public class P85MaximalRectangle {
     
                 // 记录所有行中最小的数
                 int minWidth = dp[row][col];
-                // 优化：要是没有之前的面积大何必继续上试呢？（此优化可以从 15ms 减少到 5 ms）
+                // 优化：要是没有之前的面积大何必继续向上试呢？（此优化可以从 15ms 减少到 5 ms）
                 if (maxArea > 0 && minWidth * (row + 1) <= maxArea) continue;
                 // 向上扩展行
-                for (int rowUp = row; rowUp >= 0; --rowUp) {
-                    // 优化 1： 向上试探时遇到 0 则快速结束
+                for (int rowUp = row; rowUp >= 0; rowUp--) {
+                    // 优化： 向上试探时遇到 0 则快速结束
                     if (dp[rowUp][col] == 0) break;
                     int height = row - rowUp + 1;
                     // 找最小的数作为矩阵的宽
