@@ -1,10 +1,11 @@
 package alg.leetcode;
 
 /**
+ * @link https://leetcode.cn/problems/reverse-linked-list-ii/
  * @author zhangxq
  * @since 2023/4/19
  */
-public class P92 {
+public class P92ReverseLinkedListII {
     
     public static void main(String[] args) {
     
