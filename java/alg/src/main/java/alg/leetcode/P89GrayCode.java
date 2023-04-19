@@ -11,7 +11,9 @@ import java.util.List;
 public class P89GrayCode {
     
     public static void main(String[] args) {
-    
+        P89GrayCode solution = new P89GrayCode();
+        List<Integer> res1 = solution.grayCode(3);
+        System.out.println(res1);
     }
     
     public List<Integer> grayCode(int n) {
