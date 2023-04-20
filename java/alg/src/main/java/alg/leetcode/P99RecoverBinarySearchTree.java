@@ -28,7 +28,7 @@ public class P99RecoverBinarySearchTree {
             else {
                 var p = root.left;
                 while (p.right != null && p.right != root) p = p.right;
-                if (p.right == null) { p.right = root; root=root.left; }
+                if (p.right == null) { p.right = root; root = root.left; }
                 else {
                     p.right = null;
                     if (last != null && last.val > root.val) {
