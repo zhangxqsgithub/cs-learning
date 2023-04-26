@@ -1,8 +1,8 @@
 package alg.leetcode;
 
 /**
- * https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
  * 二叉树的最小深度
+ * @link https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/
  */
 public class P111MinimumDepthOfBinaryTree {
     
