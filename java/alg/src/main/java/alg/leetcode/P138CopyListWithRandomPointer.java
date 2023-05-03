@@ -5,7 +5,7 @@ package alg.leetcode;
  * @author zhangxq
  * @since 2023/5/3
  */
-public class P38CopyListWithRandomPointer {
+public class P138CopyListWithRandomPointer {
     
     public static void main(String[] args) {
     
