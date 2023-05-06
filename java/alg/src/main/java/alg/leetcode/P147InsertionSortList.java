@@ -13,23 +13,21 @@ public class P147InsertionSortList {
     
     public ListNode insertionSortList(ListNode head) {
         if (head == null) return null;
-        var dummy = new ListNode(-10000);
-        dummy.next = head;
-        var lastSorted = head;
+        var dummy = new ListNode(-10000, head);
+        
+        var last = head;
         var cur = head.next;
         while (cur != null) {
-            if (lastSorted.val <= cur.val)
-                lastSorted = lastSorted.next;
+            // 若最后一个元素无需排序
+            if (last.val <= cur.val) last = last.next;
             else {
                 var pre = dummy;
-                while (pre.next.val <= cur.val) {
-                    pre = pre.next;
-                }
-                lastSorted.next = cur.next;
+                while (pre.next.val <= cur.val) pre = pre.next;
+                last.next = cur.next;
                 cur.next = pre.next;
                 pre.next = cur;
             }
-            cur = lastSorted.next;
+            cur = last.next;
         }
         return dummy.next;
     }
