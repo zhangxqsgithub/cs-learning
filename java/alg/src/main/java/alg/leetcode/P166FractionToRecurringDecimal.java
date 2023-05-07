@@ -31,8 +31,7 @@ public class P166FractionToRecurringDecimal {
             x %= y;
             if (hash.containsKey(x)) {
                 // 解决循环节的括号问题
-                res.insert((int) hash.get(x), '(');
-                res.append(')');
+                res.insert((int) hash.get(x), '(').append(')');
                 break;
             }
         }
