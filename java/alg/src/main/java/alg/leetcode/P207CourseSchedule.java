@@ -26,8 +26,7 @@ public class P207CourseSchedule {
         // 每个点的入度
         int[] d = new int[n];
         for (var e : edges) {
-            var a = e[0];
-            var b = e[1];
+            var b = e[0]; var a = e[1];
             g.get(a).add(b);
             d[b]++;
         }
