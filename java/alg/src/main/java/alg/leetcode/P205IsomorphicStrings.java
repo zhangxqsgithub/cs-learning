@@ -18,7 +18,7 @@ public class P205IsomorphicStrings {
     
     public boolean isIsomorphic2(String s, String t) {
         if (s.length() != t.length()) return false;
-        if (s.length()== 0 /* && t.length() == 0 */) return true;
+        if (s.length() == 0 /* && t.length() == 0 */) return true;
     
         Map<Character, Character> map = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
