@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-import java.util.stream.Stream;
 
 /**
- * @link https://leetcode.cn/problems/course-schedule-ii/
  * @author zhangxq
+ * @link https://leetcode.cn/problems/course-schedule-ii/
  * @since 2023/5/8
  */
 public class P210CourseScheduleII {
@@ -29,8 +28,7 @@ public class P210CourseScheduleII {
         
         Queue<Integer> que = new LinkedList<>();
         for (int i = 0; i < n; i++)
-            if (d[i] == 0)
-                que.add(i);
+            if (d[i] == 0) que.add(i);
         
         var res = new int[n];
         var cnt = 0;
@@ -38,8 +36,7 @@ public class P210CourseScheduleII {
             var t = que.poll();
             res[cnt++] = t;
             for (var i : g.get(t))
-                if (--d[i] == 0)
-                    que.add(i);
+                if (--d[i] == 0) que.add(i);
         }
         return cnt == n ? res : new int[]{};
     }
