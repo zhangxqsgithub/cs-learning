@@ -1,6 +1,8 @@
 use std::io;
 
 fn main() {
+    // 1. 使用 rustup docs --book 命令启动 The Book 学习 rust 语言
+    
     func_demo();
 }
 
