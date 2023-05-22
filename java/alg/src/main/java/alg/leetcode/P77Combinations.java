@@ -17,9 +17,7 @@ public class P77Combinations {
     
     public static List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> res = new ArrayList<>();
-        if (k <= 0 || n < k) {
-            return res;
-        }
+        if (k <= 0 || n < k) return res;
         // 从 1 开始是题目的设定
         Deque<Integer> path = new ArrayDeque<>();
         dfs(n, k, 1, path, res);
@@ -32,7 +30,6 @@ public class P77Combinations {
             res.add(new ArrayList<>(path));
             return;
         }
-        
         // 遍历可能的搜索起点
         for (int i = begin; i <= n; i++) {
             // 向路径变量里添加一个数
