@@ -20,10 +20,10 @@ public class P228SummaryRanges {
         if (nums.length == 0) return res;
         for (var i = 0; i < nums.length; i++) {
             int n = nums[i];
-            int x = n, j = i;
-            while (j < nums.length && nums[j] == x) { x++; j++; }
-            if (n != x - 1) res.add(n + "->" + (x - 1));
-            else res.add(String.valueOf(n));
+            int j = i + 1;
+            while (j < nums.length && nums[j] == nums[j - 1] + 1) j++;
+            if (j == i + 1) res.add(String.valueOf(n));
+            else res.add(n + "->" + nums[j - 1]);
             i = j - 1;
         }
         return res;
