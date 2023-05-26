@@ -2,7 +2,6 @@ package alg.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * @link https://leetcode.cn/problems/word-pattern/
