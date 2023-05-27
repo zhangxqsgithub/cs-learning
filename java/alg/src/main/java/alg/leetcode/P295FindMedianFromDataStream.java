@@ -3,7 +3,6 @@ package alg.leetcode;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.TreeSet;
 
 /**
  * @link https://leetcode.cn/problems/find-median-from-data-stream/
