@@ -51,12 +51,10 @@ public class P329LongestIncreasingPathInAMatrix {
     // 暴搜做法
     // int[][] matrix;
     // int m; int n;
-    boolean[][] v;
     public int longestIncreasingPath2(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) return 0;
         m = matrix.length; n = matrix[0].length;
         this.matrix = matrix;
-        this.v = new boolean[m][n];
         int res = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -68,15 +66,13 @@ public class P329LongestIncreasingPathInAMatrix {
     }
     
     public int dfs(int i, int j, int from, int step) {
-        if (m <= i || i < 0 || n <= j || j < 0 || v[i][j] || from >= matrix[i][j]) {
+        if (m <= i || i < 0 || n <= j || j < 0 || from >= matrix[i][j]) {
             return step;
         }
-        v[i][j] = true;
         int top = dfs(i - 1, j, matrix[i][j], step + 1);
         int left = dfs(i, j - 1, matrix[i][j], step + 1);
         int down = dfs(i + 1, j, matrix[i][j], step + 1);
         int right = dfs(i, j + 1, matrix[i][j], step + 1);
-        v[i][j] = false;
         return Math.max(Math.max(Math.max(top, left), down), right);
     }
 }
