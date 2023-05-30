@@ -16,7 +16,7 @@ public class P329LongestIncreasingPathInAMatrix {
     // DP 记忆化搜索
     int[][] matrix;
     int m; int n;
-    int[][] f;
+    int[][] f; // f[i][j] 保存的是从该位置开始走满足条件的最大补数
     int[][] d = new int[][]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
     public int longestIncreasingPath(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) return 0;
