@@ -26,6 +26,7 @@ public class P354RussianDollEnvelopes {
             if (a[0] != b[0]) return a[0] - b[0];
             else return b[1] - a[1];
         });
+        // 就是将每个降序的 h 当作数组求最长递增子序列的长度
         int len = 0; // q 数组的有效长度
         // 高度的最长上升子序列数组，q[i] 表示最长上升子序列长度为 i 时的结尾最小元素
         int[] q = new int[n + 1];
@@ -33,13 +34,13 @@ public class P354RussianDollEnvelopes {
         q[0] = -0x3f3f3f3f;
         for (int i = 0; i < n; i++) {
             // 二分查找
-            int l = 0, r = len;
+            int h = envelopes[i][1], l = 0, r = len;
             while (l < r) {
                 int mid = l + r + 1 >> 1;
-                if (q[mid] < envelopes[i][1]) l = mid;
+                if (q[mid] < h) l = mid;
                 else r = mid - 1;
             }
-            q[r + 1] = envelopes[i][1];
+            q[r + 1] = h;
             len = Math.max(len, r + 1);
         }
         return len;
