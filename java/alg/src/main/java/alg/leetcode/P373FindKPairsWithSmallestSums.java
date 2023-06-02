@@ -24,6 +24,7 @@ public class P373FindKPairsWithSmallestSums {
         int n = a.length, m = b.length;
         var heap = new PriorityQueue<int[]>(Comparator.comparingInt(o -> o[0]));
         for (int i = 0; i < m; i++) heap.add(new int[]{a[0] + b[i], 0, i});
+        // 边往 heap 里增加元素，边计算
         while (k-- != 0 && heap.size() != 0) {
             var t = heap.poll();
             res.add(Arrays.asList(a[t[1]], b[t[2]]));
