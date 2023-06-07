@@ -1,5 +1,6 @@
 package alg.leetcode;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,5 +50,39 @@ public class P395LongestSubstringWithAtLeastKRepeatingCharacters {
             cnt.put(c, cnt.get(c) - 1);
             if (cnt.get(c) == 0) x--; // 说明有一种字符消失了
         }
+    }
+    
+    public int longestSubstring2(String s, int k) {
+        int res = 0;
+        int[] cnt = new int[26];
+        for (int u = 1; u <= 26; u++) {
+            Arrays.fill(cnt, 0);
+            int charCnt = 0;
+            int qualified = 0;
+            for (int i = 0, j = 0; i < s.length(); i++) {
+                int id = s.charAt(i) - 'a';
+                cnt[id]++;
+                if (cnt[id] == 1) {
+                    charCnt++;
+                }
+                if (cnt[id] == k) {
+                    qualified++;
+                }
+                while (j < i && charCnt > u) {
+                    id = s.charAt(j++) - 'a';
+                    cnt[id]--;
+                    if (cnt[id] == 0) {
+                        charCnt--;
+                    }
+                    if (cnt[id] == k - 1) {
+                        qualified--;
+                    }
+                }
+                if (charCnt == u && qualified == u) {
+                    res = Math.max(res, i - j + 1);
+                }
+            }
+        }
+        return res;
     }
 }
