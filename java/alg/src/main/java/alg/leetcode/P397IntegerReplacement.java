@@ -14,7 +14,7 @@ public class P397IntegerReplacement {
         System.out.println(1 / 2);
     }
     
-    // 加一个 cache 避免重复搜索
+    // 加一个 cache 避免重复搜索。时间复杂度为 根下 n
     Map<Long, Integer> map = new HashMap<>();
     public int integerReplacement(int n) {
         return f(n);
