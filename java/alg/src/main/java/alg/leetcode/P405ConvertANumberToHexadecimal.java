@@ -19,7 +19,6 @@ public class P405ConvertANumberToHexadecimal {
         var res = new StringBuilder();
         for (int i = 32; i > 0; i -= 4) {
             int x = num >>> i - 4 & 15;
-            System.out.println(x);
             res.append(hex[x]);
         }
         // 去除前导 0
