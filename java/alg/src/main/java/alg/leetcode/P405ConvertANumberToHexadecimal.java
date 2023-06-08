@@ -15,11 +15,11 @@ public class P405ConvertANumberToHexadecimal {
     
     // 32 位数每组 4 位分成 8 组即可，求每组的数
     public String toHex(int num) {
-        var hex = new char[]{'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+        var hex = "0123456789abcdef";
         var res = new StringBuilder();
         for (int i = 32; i > 0; i -= 4) {
             int x = num >>> i - 4 & 15;
-            res.append(hex[x]);
+            res.append(hex.charAt(x));
         }
         // 去除前导 0
         int k = 0;
