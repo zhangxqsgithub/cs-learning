@@ -17,6 +17,8 @@ public class P397IntegerReplacement {
     // 加一个 cache 避免重复搜索。时间复杂度为 根下 n
     Map<Long, Integer> map = new HashMap<>();
     public int integerReplacement(int n) {
+        // 加一个缓存直接 0ms
+        map.put((long) Integer.MAX_VALUE, 32);
         return f(n);
     }
     public int f(long n) {
