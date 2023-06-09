@@ -10,7 +10,15 @@ import java.util.*;
 public class P399EvaluateDivision {
     
     public static void main(String[] args) {
-    
+        var equations = new ArrayList<List<String>>();
+        equations.add(List.of("a", "b"));
+        equations.add(List.of("b", "c"));
+        var values = new double[]{1e-05, 1e-05};
+        var queries = new ArrayList<List<String>>();
+        queries.add(List.of("a", "c"));
+        var solution = new P399EvaluateDivision();
+        var res = solution.calcEquation(equations, values, queries);
+        System.out.println(Arrays.toString(res));
     }
     
     /**
@@ -39,7 +47,7 @@ public class P399EvaluateDivision {
         for (int i = 0; i < queries.size(); i++) {
             var a = queries.get(i).get(0); var b = queries.get(i).get(1);
             if (d.containsKey(a) && d.get(a).containsKey(b)) res[i] = d.get(a).get(b);
-            else res[i] = -1D;
+            else res[i] = -1.0;
         }
         return res;
     }
