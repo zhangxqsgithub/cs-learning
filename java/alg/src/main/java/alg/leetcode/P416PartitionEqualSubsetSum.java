@@ -1,6 +1,8 @@
 package alg.leetcode;
 
+import java.util.Arrays;
 import java.util.BitSet;
+import java.util.PrimitiveIterator;
 
 /**
  * @link https://leetcode.cn/problems/partition-equal-subset-sum/
@@ -38,10 +40,20 @@ public class P416PartitionEqualSubsetSum {
         dp.set(0, true);
         for (var x : nums) {
             // 要实现 dp = dp | dp << x;
-            dp.or(dp.get(x, dp.size() - 1));
+            dp.or(moveRight(dp, x));
             sum += x;
         }
         if (sum % 2 != 0) return false;
         return dp.get(sum / 2);
+    }
+    public BitSet moveRight(BitSet bs, int m) {
+        int n = bs.size() - m;
+        BitSet res = new BitSet(n);
+        var iterator = bs.stream().iterator();
+        while (iterator.hasNext()) {
+            var i = iterator.next();
+            res.set(i + m);
+        }
+        return res;
     }
 }
