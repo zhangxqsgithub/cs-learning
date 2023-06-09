@@ -28,18 +28,12 @@ public class P399EvaluateDivision {
             vers.add(a); vers.add(b);
         }
         
-        for (var k : vers) {
-            for (var i : vers) {
-                for (var j : vers) {
+        for (var k : vers)
+            for (var i : vers)
+                for (var j : vers)
                     // 从 i 到 k 存在并且从 j 到 k 存在
-                    if (d.containsKey(i) && d.get(i).containsKey(k) && d.containsKey(k) && d.get(k).containsKey(j)) {
-                        d
-                                .computeIfAbsent(i, m -> new HashMap<>())
-                                .put(j, d.get(i).get(k) * d.get(k).get(j));
-                    }
-                }
-            }
-        }
+                    if (d.containsKey(i) && d.get(i).containsKey(k) && d.containsKey(k) && d.get(k).containsKey(j))
+                        d.computeIfAbsent(i, m -> new HashMap<>()).put(j, d.get(i).get(k) * d.get(k).get(j));
         
         var res = new double[queries.size()];
         for (int i = 0; i < queries.size(); i++) {
