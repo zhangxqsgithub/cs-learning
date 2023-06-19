@@ -49,7 +49,7 @@ public class C1_1_Sort {
         quickSort(arr, gt, r);
     }
     
-    // 代码简洁！（但这种方法并没有有效地利用 pivot，省略一个排序的数字）
+    // 代码简洁！
     public void quickSort2(int[] arr, int l, int r) {
         if (l >= r) return;
         int pivot = arr[l];
@@ -59,6 +59,7 @@ public class C1_1_Sort {
             do j--; while (arr[j] > pivot); // j 指针会停在 >= pivot 的数字上
             if (i < j) swap(arr, i, j);
         }
+        // 这里要取 j 的原因是，若取 i，则会死循环例 [1, 2]
         quickSort2(arr, l, j);
         quickSort2(arr, j + 1, r);
     }
