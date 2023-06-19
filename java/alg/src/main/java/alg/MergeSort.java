@@ -14,31 +14,24 @@ public class MergeSort {
     /**
      * 归并排序
      */
-    public void mergeSort(int[] arr, int left, int right) {
-        if (right <= left) return;
-        int mid = (left + right) >> 1; // (left + right) / 2
-        mergeSort(arr, left, mid);
-        mergeSort(arr, mid + 1, right);
-        merge(arr, left, mid, right);
+    public void mergeSort(int[] arr, int l, int r) {
+        if (l >= r) return;
+        int mid = l + (r - l) / 2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+        merge(arr, l, mid, r); // 合二为一
     }
     
     /**
      * 两个有序的数组合并为一个有序数组
      */
-    private void merge(int[] arr, int left, int mid, int right) {
-        int[] temp = new int[right - left + 1]; // 中间数组
-        int i = left, j = mid + 1, k = 0;
-        while (i <= mid && j <= right) {
-            temp[k++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
-        }
+    private void merge(int[] arr, int l, int mid, int r) {
+        int[] temp = new int[r - l + 1]; // 中间数组
+        int i = l, j = mid + 1, k = 0;
+        while (i <= mid && j <= r) temp[k++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
         while (i <= mid) temp[k++] = arr[i++];
-        while (j <= right) temp[k++] = arr[j++];
-        
-        // 也可以用 System.arraycopy
-        // System.arraycopy(temp, 0, arr, left, temp.length);
-        for (int p = 0; p < temp.length; ++p) {
-            arr[left + p] = temp[p];
-        }
+        while (j <= r) temp[k++] = arr[j++];
+        for (int p = 0; p < temp.length; ++p) arr[l + p] = temp[p];
     }
     
 }
