@@ -15,7 +15,26 @@ public class C1_4PrefixSum {
         var arr1 = new int[]{1, 2, 3};
         sum.sum(arr1);
         
+        var matrix1 = new int[][]{
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
         var sumMatrix = new SumMatrix();
+        sumMatrix.sumMatrix(matrix1);
+        
+        // 差分
+        var sub = new Sub();
+        var arr3 = new int[]{1, 3, 6};
+        sub.sub(arr3);
+        
+        var subMatrix = new SubMatrix();
+        var matrix2 = new int[][] {
+                {1, 3, 6},
+                {5, 12, 21},
+                {12, 27, 45}
+        };
+        subMatrix.sub(matrix2);
     }
     
     // 一维前缀和
@@ -49,6 +68,33 @@ public class C1_4PrefixSum {
         // 求 matrix[x1, x2][y1, y2] 的和
         public int get(int x1, int y1, int x2, int y2) {
             return s[x2 + 1][y2 + 1] - s[x1][y2 + 1] - s[x2 + 1][y1] + s[x1][y1];
+        }
+    }
+    
+    // 差分 前缀和的逆运算
+    static class Sub {
+        int[] arr;
+        public void sub(int[] s) {
+            int n = s.length;
+            arr = new int[n];
+            arr[0] = s[0];
+            for (int i = 1; i < n; i++) arr[i] = s[i] - s[i - 1];
+            System.out.println(Arrays.toString(arr));
+        }
+    }
+    
+    static class SubMatrix {
+        int[][] matrix;
+        public void sub(int[][] s) {
+            int m = s.length, n = s[0].length;
+            matrix = new int[m][n];
+            matrix[0][0] = s[0][0];
+            for (int i = 1; i < n; i++) matrix[0][i] = s[0][i] - s[0][i - 1];
+            for (int i = 1; i < m; i++) matrix[i][0] = s[i][0] - s[i - 1][0];
+            for (int i = 1; i < m; i++)
+                for (int j = 1; j < n; j++)
+                    matrix[i][j] = s[i][j] - s[i - 1][j] - s[i][j - 1] + s[i - 1][j - 1];
+            System.out.println(Arrays.deepToString(matrix));
         }
     }
 }
