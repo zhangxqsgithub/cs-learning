@@ -22,10 +22,10 @@ public class C1_4PrefixSum {
     
     // 一维前缀和
     static class Sum {
-        int[] s;
+        int[] s; // s[i] 中保存的是 arr[0, i) 的和
         public void sum(int[] arr) {
             int n = arr.length;
-            s = new int[n + 1];
+            s = new int[n + 1]; // 为了很好的处理边界问题，需要多申请一个长度
             for (int i = 1; i <= n; i++) {
                 s[i] = s[i - 1] + arr[i - 1];
             }
