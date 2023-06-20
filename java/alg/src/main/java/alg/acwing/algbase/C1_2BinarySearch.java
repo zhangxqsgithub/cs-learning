@@ -1,6 +1,8 @@
 package alg.acwing.algbase;
 
 /**
+ * 二分
+ *
  * @author zhangxq
  * @since 2023/6/19
  */
