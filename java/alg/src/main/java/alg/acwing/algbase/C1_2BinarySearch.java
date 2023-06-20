@@ -12,10 +12,7 @@ public class C1_2BinarySearch {
         // var res = solution.binarySearch(arr, -1);
         // System.out.println(res);
         
-        // var res = solution.lowerBound(arr, 4);
-        // System.out.println(res);
-        
-        var res = solution.test(arr, -100_000);
+        var res = solution.lowerBound(arr, 100_000);
         System.out.println(res);
     }
     
@@ -34,22 +31,11 @@ public class C1_2BinarySearch {
         return false;
     }
     
-    // 二分查找法, 实现lower_bound
-    // 即在一个有序数组arr中, 寻找大于等于target的元素的第一个索引
-    // 如果存在, 则返回相应的索引index
-    // 否则, 返回arr的元素个数 n
-    public int lowerBound(int[] arr, int target) {
-        // 在 [l, r) 的区间内查找大于等于 target 的第一个索引
-        int l = 0, r = arr.length; // r 的取值保证了奇数时取到中间值，偶数时取到中间两个数靠右的值。
-        while (l != r) {
-            int mid = l + (r - l) / 2;
-            if (arr[mid] < target) l = mid + 1; // 若遇到严格小于目标值的数，则直接略过
-            else r = mid; // arr[mid] >= target
-        }
-        return l;
-    }
-    
     /**
+     * 二分查找法, 实现lower_bound
+     * 即在一个有序数组arr中, 寻找大于等于target的元素的第一个索引
+     * 如果存在, 则返回相应的索引index。否则, 返回arr的元素个数 n
+     *
      * 二分查找，l 下标收敛到 >= target 的第一个下标中。
      * 当遇到严格小于 target 的时候，可以直接放弃左半部分的值；遇到 arr[mid] >= target 的时候说明 arr[mid] 之前
      * 可能还有 >= target 值的下标存在，所以设置 r = mid;
@@ -59,11 +45,13 @@ public class C1_2BinarySearch {
      * 情况 2：arr[l] < arr[r] 且 arr[l] < target; mid 的值为 l; l = mid + 1; 即 l = r 的情况。
      * 情况 3：arr[l] < arr[r] 且 arr[l] >= target; mid 的值为 l; r = l = mid; 即 l = r 的情况。
      */
-    public int lowerBound2(int[] arr, int target) {
-        int l = 0, r = arr.length - 1;
-        while (l < r) {
+    public int lowerBound(int[] arr, int target) {
+        // 在 [l, r) 的区间内查找大于等于 target 的第一个索引
+        // r 的取值保证了当所有 target > arr 中的所有数字时，可以返回 arr.length 为结果
+        int l = 0, r = arr.length;
+        while (l != r) {
             int mid = l + (r - l) / 2;
-            if (arr[mid] < target) l = mid + 1;
+            if (arr[mid] < target) l = mid + 1; // 若遇到严格小于目标值的数，则直接略过
             else r = mid; // arr[mid] >= target
         }
         return l;
@@ -77,31 +65,9 @@ public class C1_2BinarySearch {
         int l = 0, r = arr.length;
         while (l != r) {
             int mid = l + (r - l) / 2;
-            if (arr[mid] <= target) l = mid + 1;
-            else r = mid; // nums[mid] > target
+            if (arr[mid] <= target) l = mid + 1;      // 需要丢弃的区间
+            else r = mid; // nums[mid] > target          需要保留的区间
         }
-        return l;
-    }
-    
-    public int upperBound2(int[] arr, int target) {
-        int l = 0, r = arr.length - 1;
-        while (l < r) {
-            int mid = l + (r - l) / 2;
-            if (arr[mid] <= target) l = mid + 1;    // 需要丢弃的区间
-            else r = mid;                           // 需要保留的区间
-        }
-        return l;
-    }
-    
-    public int test(int[] arr, int target) {
-        int l = 0, r = arr.length - 1;
-        while (l < r) {
-            int mid = l + (r - l) / 2;
-            if (arr[mid] < target) l = mid + 1;
-            else r = mid; // arr[mid] >= target
-        }
-        System.out.println(l);
-        System.out.println(r);
         return l;
     }
 }
