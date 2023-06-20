@@ -11,13 +11,11 @@ import java.util.Arrays;
 public class C1_4PrefixSum {
     
     public static void main(String[] args) {
-        var solution = new SumMatrix();
-        var matrix = new int[][]{
-                {1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}};
-        solution.sumMatrix(matrix);
-        System.out.println(solution.get(1, 1, 1, 1));
+        var sum = new Sum();
+        var arr1 = new int[]{1, 2, 3};
+        sum.sum(arr1);
+        
+        var sumMatrix = new SumMatrix();
     }
     
     // 一维前缀和
