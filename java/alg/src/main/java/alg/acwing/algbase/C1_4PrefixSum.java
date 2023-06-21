@@ -50,7 +50,9 @@ public class C1_4PrefixSum {
         }
         // 求 arr 数组中 [l, r] 区间内的和
         public int get(int l, int r) {
-            return s[r + 1] - s[l];
+            // + 1 便于理解
+            l++; r++;
+            return s[r] - s[l - 1];
         }
     }
     
@@ -67,7 +69,8 @@ public class C1_4PrefixSum {
         }
         // 求 matrix[x1, x2][y1, y2] 的和
         public int get(int x1, int y1, int x2, int y2) {
-            return s[x2 + 1][y2 + 1] - s[x1][y2 + 1] - s[x2 + 1][y1] + s[x1][y1];
+            x1++; y1++; x2++; y2++;
+            return s[x2][y2] - s[x1 - 1][y2] - s[x2][y1 - 1] + s[x1 - 1][y1 - 1];
         }
     }
     

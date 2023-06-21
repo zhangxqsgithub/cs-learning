@@ -1,8 +1,8 @@
 package alg.acwing.algbase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 双指针
@@ -68,42 +68,47 @@ public class C1_5DoublePointer {
     // 离散化 将一个值域比较大且数字比较少的数组中的值，映射成为数字连续的下标值。
     // 即按照数组中的数字，找出数组中的下标是多少。
     public void discretization() {
-        var arr = new int[]{1, 2, 2, 9, 100, 100_000, 1_000_000};
-        // 排序
-        Arrays.sort(arr);
-        // 去重
-        var newArr = distinct(arr);
-        System.out.println(Arrays.toString(newArr));
-        
-        System.out.println(find(newArr, 1));
-        System.out.println(find(newArr, 2));
-        System.out.println(find(newArr, 4));
-        System.out.println(find(newArr, 8));
-        System.out.println(find(newArr, 100_000));
+        var arr = new int[]{1, 2, 4, 8, 100, 200, 1000};
+        var sum = new Sum(arr);
+        // 求数组 arr 中的所有数字在区间 [4, 100] 内的总和。
+        sum.query(4, 100);
     }
-    // 二分求出 x 对应的离散化的值
-    // 找出第一个 >= x 值的下标
-    public int find(int[] arr, int x) {
-        int l = 0, r = arr.length;
-        while (l != r) {
-            int mid = l + (r - l) / 2;
-            if (arr[mid] < x) l = mid + 1;
-            else r = mid;
+    // 例 离散化数组求区间和
+    static class Sum {
+        List<Integer> list;
+        List<Integer> s; // 前缀和数组
+        public Sum(int[] arr) {
+            var l = new ArrayList<Integer>();
+            for (int x : arr) l.add(x);
+            // 排序 + 去重
+            list = l.stream().distinct().sorted().collect(Collectors.toList());
+            s = new ArrayList<>();
+            s.add(0);
+            for (int x : arr) s.add(s.get(s.size() - 1) + x); // 求前缀和数组
         }
-        return l;
-    }
-    public int[] distinct(int[] arr) {
-        var set = new HashSet<>();
-        var list = new ArrayList<Integer>();
-        for (int x : arr) {
-            if (!set.contains(x)) {
-                list.add(x);
-                set.add(x);
+        // 求 [a, b] 数值区间内，存在于 list 数组中的数字总和。
+        public int query(int a, int b) {
+            int l = find(a), r = find(b);
+            int res = get(l, r);
+            System.out.println(res);
+            return res;
+        }
+        // 二分求出 x 对应的离散化的值
+        // 找出第一个 >= x 值的下标
+        public int find(int x) {
+            int l = 0, r = list.size();
+            while (l != r) {
+                int mid = l + (r - l) / 2;
+                if (list.get(mid) < x) l = mid + 1;
+                else r = mid;
             }
+            return l;
         }
-        var res = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) res[i] = list.get(i);
-        return res;
+        public int get(int l, int r) {
+            l++; r++;
+            return s.get(r) - s.get(l - 1);
+        }
     }
     // 区间合并
+    
 }
