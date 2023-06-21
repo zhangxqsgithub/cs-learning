@@ -1,5 +1,11 @@
 package alg.acwing.algbase;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * 双指针
  * @author zhangxq
@@ -9,7 +15,9 @@ public class C1_5DoublePointer {
     
     public static void main(String[] args) {
         var solution = new C1_5DoublePointer();
-        solution.bit();
+        // solution.bit();
+        
+        solution.discretization();
     }
     
     // 双指针
@@ -59,6 +67,45 @@ public class C1_5DoublePointer {
         return res;
     }
     public int lowbit(int x) { return x & -x; }
-    // 离散化
+    // 离散化 将一个值域比较大且数字比较少的数组中的值，映射成为数字连续的下标值。
+    // 即按照数组中的数字，找出数组中的下标是多少。
+    public void discretization() {
+        var arr = new int[]{1, 2, 2, 9, 100, 100_000, 1_000_000};
+        // 排序
+        Arrays.sort(arr);
+        // 去重
+        var newArr = distinct(arr);
+        System.out.println(Arrays.toString(newArr));
+        
+        System.out.println(find(newArr, 1));
+        System.out.println(find(newArr, 2));
+        System.out.println(find(newArr, 4));
+        System.out.println(find(newArr, 8));
+        System.out.println(find(newArr, 100_000));
+    }
+    // 二分求出 x 对应的离散化的值
+    public int find(int[] arr, int x) {
+        int l = 0, r = arr.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] == x) return mid;
+            else if (arr[mid] < x) l = mid + 1;
+            else r = mid - 1;
+        }
+        return -1; // 没有找到
+    }
+    public int[] distinct(int[] arr) {
+        var set = new HashSet<>();
+        var list = new ArrayList<Integer>();
+        for (int x : arr) {
+            if (!set.contains(x)) {
+                list.add(x);
+                set.add(x);
+            }
+        }
+        var res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) res[i] = list.get(i);
+        return res;
+    }
     // 区间合并
 }
