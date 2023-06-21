@@ -43,11 +43,22 @@ public class C1_5DoublePointer {
         
         printBinary(48);
         printBinary(-48); // 负数用补码表示，原码 -> 反码 通过每位二进制取反获得，反码再 + 1 得到补码。
+        
+        System.out.println(countOneBinary(48));
     }
     public void printBinary(int x) {
         for (int k = 31; k >= 0; k--) System.out.print(x >> k & 1);
         System.out.println();
     }
+    // 统计数字 k 的二进制表示中 1 出现的次数
+    public int countOneBinary(int k) {
+        int res = 0;
+        while (k != 0) {
+            k -= lowbit(k); res++;
+        }
+        return res;
+    }
+    public int lowbit(int x) { return x & -x; }
     // 离散化
     // 区间合并
 }
