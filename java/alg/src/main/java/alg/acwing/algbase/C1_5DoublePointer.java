@@ -82,15 +82,15 @@ public class C1_5DoublePointer {
         System.out.println(find(newArr, 100_000));
     }
     // 二分求出 x 对应的离散化的值
+    // 找出第一个 >= x 值的下标
     public int find(int[] arr, int x) {
-        int l = 0, r = arr.length - 1;
-        while (l <= r) {
+        int l = 0, r = arr.length;
+        while (l != r) {
             int mid = l + (r - l) / 2;
-            if (arr[mid] == x) return mid;
-            else if (arr[mid] < x) l = mid + 1;
-            else r = mid - 1;
+            if (arr[mid] < x) l = mid + 1;
+            else r = mid;
         }
-        return -1; // 没有找到
+        return l;
     }
     public int[] distinct(int[] arr) {
         var set = new HashSet<>();
