@@ -26,14 +26,13 @@ public class C1_08SegmentsMerge {
     }
     
     // 区间合并
+    // 贪心
+    // 1. 区间按照左端点正序排序
+    // 2. 从左往右扫描，将可能合并的区间合并
+    //    每次维护一个当前的区间 cur，若需要处理的区间 i 的左端点是在 cur 区间内的话，cur 的右端点取 i 的
+    //    右端点和 cur 的右端点较大者；
+    //    若需要处理的区间 i 的左端点不在当前区间内，则将当前区间赋值为 i 区间；
     public List<Pair<Integer, Integer>> merge(List<Pair<Integer, Integer>> segs) {
-        // 贪心
-        // 1. 区间按照左端点正序排序
-        // 2. 从左往右扫描，将可能合并的区间合并
-        //    每次维护一个当前的区间 cur，若需要处理的区间 i 的左端点是在 cur 区间内的话，cur 的右端点取 i 的
-        //    右端点和 cur 的右端点较大者；
-        //    若需要处理的区间 i 的左端点不在当前区间内，则将当前区间赋值为 i 区间；
-        int n = segs.size();
         segs.sort((a, b) -> Integer.compare(a.first, b.first));
         var res = new ArrayList<Pair<Integer, Integer>>();
         // 当前区间在一个不存在的区间内
