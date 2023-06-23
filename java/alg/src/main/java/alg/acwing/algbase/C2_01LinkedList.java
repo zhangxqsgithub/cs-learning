@@ -12,7 +12,13 @@ import java.util.List;
 public class C2_01LinkedList {
     
     public static void main(String[] args) {
-    
+        var solution = new SingleLinkedList();
+        solution.insertFirst(1);
+        solution.insertFirst(2);
+        solution.removeFirst();
+        solution.insertFirst(3);
+        solution.insertFirst(4);
+        solution.print();
     }
     
     // 使用数组存储元素的单链表
@@ -27,7 +33,8 @@ public class C2_01LinkedList {
             next = new ArrayList<>();
             idx = -1;
         }
-        public void insert(int num) {
+        // 在链表头插入一个元素
+        public void insertFirst(int num) {
             elements.add(num);
             next.add(head);
             idx++;
@@ -35,6 +42,18 @@ public class C2_01LinkedList {
         }
         public void removeFirst() {
             head = next.get(head);
+        }
+        public void print() {
+            var sb = new StringBuilder();
+            sb.append("{");
+            var h = head;
+            while (h != -1) {
+                var v = elements.get(h);
+                sb.append(v).append("->");
+                h = next.get(h);
+            }
+            sb.append("}");
+            System.out.println(sb.toString());
         }
     }
 
