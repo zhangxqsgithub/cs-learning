@@ -1,6 +1,7 @@
 package alg.acwing.algbase;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -110,5 +111,27 @@ public class C1_5DoublePointer {
         }
     }
     // 区间合并
-    
+    public List<?> merge(int[][] intervals) {
+        // 贪心
+        // 1. 区间按照左端点正序排序
+        // 2. 从左往右扫描，将可能合并的区间合并
+        //    每次维护一个当前的区间 cur，若需要处理的区间 i 的左端点是在 cur 区间内的话，cur 的右端点取 i 的
+        //    右端点和 cur 的右端点较大者；
+        //    若需要处理的区间 i 的左端点不在当前区间内，则将当前区间赋值为 i 区间；
+        int n = intervals.length;
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        var res = new ArrayList<int[]>();
+        int[] cur = intervals[0];
+        for (int i = 1; i < n; i++) {
+            if (intervals[i][0] <= cur[1]) { // 在当前区间内
+                cur[1] = Math.max(cur[1], intervals[i][0]);
+            }
+            else {
+                // 找到一个新的区间
+                res.add(cur);
+                cur = intervals[i];
+            }
+        }
+        return res;
+    }
 }
