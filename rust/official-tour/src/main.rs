@@ -2,7 +2,7 @@ use std::io;
 
 fn main() {
     // 1. 使用 rustup docs --book 命令启动 The Book 学习 rust 语言
-    
+
     func_demo();
 }
 
@@ -22,7 +22,7 @@ fn guess_game() {
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
-    
+
     println!("You guessed: {guess}");
 }
 
@@ -33,7 +33,7 @@ fn func_demo() {
     带有参数的方法
     调用 func2 方法时，param 参数被复制到 func2 方法定义的参数 x 上。
     param 参数和 func2 的接收参数之间，所有权互不影响（因为是两个值）
-     */ 
+     */
     let param: i32 = 100;
     func2(param);
     println!("param: {}", param);
