@@ -1,5 +1,6 @@
 package alg.struct;
 
+// 并查集
 public class UnionFind {
     
     private int count;
@@ -29,7 +30,7 @@ public class UnionFind {
         int rootQ = find(q);
         if (rootP == rootQ) return;
         parent[rootP] = rootQ;
-        --count;
+        count--;
     }
     
     public boolean isConnected(int p, int q) {
