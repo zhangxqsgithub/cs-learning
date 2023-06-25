@@ -48,7 +48,7 @@ public class KMP {
     private void movePrefixTable(int[] prefixTable) {
         int n = prefixTable.length;
         // System.arraycopy(prefixTable, 0, prefixTable, 1, n - 1);
-        for (int i = n - 1; i > 0; --i) {
+        for (int i = n - 1; i > 0; i--) {
             prefixTable[i] = prefixTable[i - 1];
         }
         prefixTable[0] = -1;
@@ -78,5 +78,27 @@ public class KMP {
             }
         }
         return prefixTable;
+    }
+    
+    // y 总的 KMP
+    public void kmpSearch2(String text, String pattern) {
+        int n = text.length(), m = pattern.length();
+        // next 数组
+        int[] next = new int[m];
+        for (int i = 2, j = 0; i <= m; i ++ ) {
+            while (j != 0 && pattern.charAt(i) != pattern.charAt(j + 1)) j = next[j];
+            if (pattern.charAt(i) == pattern.charAt(j + 1)) j++;
+            next[i] = j;
+        }
+        
+        // 匹配
+        for (int i = 1, j = 0; i <= n; i ++ ) {
+            while (j != 0 && text.charAt(i) != pattern.charAt(j + 1)) j = next[j];
+            if (text.charAt(i) == pattern.charAt(j + 1)) j ++ ;
+            if (j == m) {
+                j = next[j];
+                // 匹配成功后的逻辑
+            }
+        }
     }
 }

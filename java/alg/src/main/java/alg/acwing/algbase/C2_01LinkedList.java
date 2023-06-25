@@ -156,4 +156,29 @@ public class C2_01LinkedList {
             return head == tail;
         }
     }
+    
+    // 单调栈
+    // 找出每个数左边离它最近的比它大/小的数
+    public void monotonicStack(int[] arr) {
+        Stack stk = new Stack(1000);
+        stk.push(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            int cur = arr[i];
+            while (!stk.empty() && stk.pop() < cur) {}
+            stk.push(cur);
+        }
+    }
+    
+    // 单调队列
+    // 找出滑动窗口中的最大值/最小值
+    public void monotonicQueue(int[] arr) {
+        var q = new int[10_000];
+        int n = arr.length;
+        int head = 0, tail = -1;
+        for (int i = 0; i < n; i ++) {
+            while (head <= tail && q[head] != 0) head++;  // 判断队头是否滑出窗口
+            while (head <= tail && q[tail] != i) tail--;
+            q[++tail] = i;
+        }
+    }
 }
