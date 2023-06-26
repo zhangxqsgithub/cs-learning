@@ -85,7 +85,7 @@ public class KMP {
         int n = text.length(), m = pattern.length();
         // next 数组
         int[] next = new int[m];
-        for (int i = 2, j = 0; i <= m; i ++ ) {
+        for (int i = 2, j = 0; i <= m; i++) {
             while (j != 0 && pattern.charAt(i) != pattern.charAt(j + 1)) j = next[j];
             if (pattern.charAt(i) == pattern.charAt(j + 1)) j++;
             next[i] = j;
@@ -101,4 +101,22 @@ public class KMP {
             }
         }
     }
+    
+    // 暴力搜索字符串
+    public int strSearch(String text, String pattern) {
+        int n = text.length(), m = pattern.length();
+        for (int i = 0; i < n; i++) {
+            boolean flag = true;
+            for (int j = 0; j < m; j++) {
+                if (text.charAt(i + j) != pattern.charAt(j)) {
+                    flag = false;
+                    break;
+                }
+            }
+            // 找到
+            if (flag) return i;
+        }
+        return -1;
+    }
+    
 }
