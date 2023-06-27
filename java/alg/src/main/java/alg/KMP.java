@@ -45,6 +45,7 @@ public class KMP {
         return res;
     }
     
+    // 整个前缀数组往后移动一位
     private void movePrefixTable(int[] prefixTable) {
         int n = prefixTable.length;
         // System.arraycopy(prefixTable, 0, prefixTable, 1, n - 1);
@@ -82,24 +83,38 @@ public class KMP {
     
     // y 总的 KMP
     public void kmpSearch2(String text, String pattern) {
+        List<Integer> res = new ArrayList<>();
         int n = text.length(), m = pattern.length();
-        // next 数组
-        int[] next = new int[m];
-        for (int i = 2, j = 0; i <= m; i++) {
+        // 求 next 数组
+        int[] next = next(pattern);
+        // 匹配
+        // i 从 1 开始的原因
+        // 因为在匹配时，j 指针需要移动到 next[j + 1] 的位置上，也就是 j = next[j + 1]
+        // 所以提前把 next 数组按序往前移动一位。
+        for (int i = 1, j = 0; i <= n; i++) {
+            // j 没有回到起点，并且 s[i] != p[j + 1]
+            while (j != 0 && text.charAt(i) != pattern.charAt(j + 1)) j = next[j];
+            if (text.charAt(i) == pattern.charAt(j + 1)) j++;
+            if (j == m) {
+                j = next[j];
+                
+                // 匹配成功后的逻辑
+                res.add(i - m + 1);
+            }
+        }
+    }
+    
+    // next 数组
+    public int[] next(String pattern) {
+        int n = pattern.length();
+        int[] next = new int[n + 1];
+        for (int i = 2, j = 0; i <= n; i++) {
+            // i 要和 j + 1 匹配
             while (j != 0 && pattern.charAt(i) != pattern.charAt(j + 1)) j = next[j];
             if (pattern.charAt(i) == pattern.charAt(j + 1)) j++;
             next[i] = j;
         }
-        
-        // 匹配
-        for (int i = 1, j = 0; i <= n; i ++ ) {
-            while (j != 0 && text.charAt(i) != pattern.charAt(j + 1)) j = next[j];
-            if (text.charAt(i) == pattern.charAt(j + 1)) j ++ ;
-            if (j == m) {
-                j = next[j];
-                // 匹配成功后的逻辑
-            }
-        }
+        return next;
     }
     
     // 暴力搜索字符串
