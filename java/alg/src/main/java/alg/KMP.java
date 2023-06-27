@@ -105,13 +105,12 @@ public class KMP {
     }
     
     // next 数组
-    public int[] next(String pattern) {
-        int n = pattern.length();
-        int[] next = new int[n + 1];
-        for (int i = 2, j = 0; i <= n; i++) {
+    public int[] next(String p) {
+        int[] next = new int[p.length() + 1];
+        for (int i = 2, j = 0; i <= p.length(); i++) {
             // i 要和 j + 1 匹配
-            while (j != 0 && pattern.charAt(i) != pattern.charAt(j + 1)) j = next[j];
-            if (pattern.charAt(i) == pattern.charAt(j + 1)) j++;
+            while (j != 0 && p.charAt(i) != p.charAt(j + 1)) j = next[j];
+            if (p.charAt(i) == p.charAt(j + 1)) j++;
             next[i] = j;
         }
         return next;
