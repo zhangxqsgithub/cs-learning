@@ -1,5 +1,8 @@
 package alg.struct;
 
+/**
+ * 高效地存储和查找字符串集合的数据结构。
+ */
 public class ArrayTrie {
     
     private final TrieNode root;
