@@ -1,6 +1,10 @@
 package alg.struct;
 
-// 并查集
+/**
+ * 并查集
+ * 1. 将两个集合合并
+ * 2. 判断两个元素是否在一个集合中
+ */
 public class UnionFind {
     
     private int count;
