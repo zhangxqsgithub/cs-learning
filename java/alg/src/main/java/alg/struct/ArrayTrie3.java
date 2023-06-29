@@ -22,13 +22,24 @@ public class ArrayTrie3 {
             this.root = new TrieNode();
         }
         public void insert(String word) {
-            TrieNode cur = root;
+            var cur = root;
             for (int i = 0; i < word.length(); i++) {
                 char c = word.charAt(i);
                 if (!cur.contain(c)) cur.set(c);
                 cur = cur.get(c);
             }
             cur.setEnd(true);
+            // insert(root, word, 0);
+        }
+        // 递归的方式插入 word
+        private void insert(TrieNode node, String word, int i) {
+            if (i >= word.length()) {
+                node.setEnd(true);
+                return;
+            }
+            char c = word.charAt(i);
+            if (!node.contain(c)) node.set(c);
+            insert(node.get(c), word, i + 1);
         }
         public boolean startsWith(String prefix) {
             return searchTrieNode(prefix) != null;
@@ -45,6 +56,12 @@ public class ArrayTrie3 {
                 cur = cur.get(c);
             }
             return cur;
+        }
+        private TrieNode searchTrieNode(TrieNode node, String word, int i) {
+            if (i == word.length()) { return node; }
+            char c = word.charAt(i);
+            if (!node.contain(c)) return null;
+            return searchTrieNode(node.get(c), word, i + 1);
         }
     }
 
