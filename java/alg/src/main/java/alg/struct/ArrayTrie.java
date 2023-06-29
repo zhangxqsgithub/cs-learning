@@ -32,7 +32,7 @@ public class ArrayTrie {
         return node != null && node.isEnd();
     }
     
-    public TrieNode searchTrieNode(String word) {
+    private TrieNode searchTrieNode(String word) {
         TrieNode cur = root;
         for (int i = 0; i < word.length(); ++i) {
             char c = word.charAt(i);
