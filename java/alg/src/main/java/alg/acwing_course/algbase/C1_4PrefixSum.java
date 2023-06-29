@@ -1,4 +1,4 @@
-package alg.acwing.algbase;
+package alg.acwing_course.algbase;
 
 import java.util.Arrays;
 
