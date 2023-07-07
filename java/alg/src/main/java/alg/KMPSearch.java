@@ -13,7 +13,8 @@ public class KMPSearch {
     public static void main(String[] args) {
         var solution = new KMPSearch();
         var s = "ABABCABAA";
-        System.out.println(Arrays.toString(solution.next(s)));
+        var next = solution.next(s.toCharArray());
+        System.out.println(Arrays.toString(next));
     }
     
     // 构造模式串 pattern 的最大匹配数表
@@ -23,6 +24,17 @@ public class KMPSearch {
             while (j > 0 && p.charAt(i) != p.charAt(j)) j = next[j - 1];
             if (p.charAt(i) == p.charAt(j)) j++;
             next[i] = j;
+        }
+        return next;
+    }
+    
+    public int[] next(char[] p) {
+        var n = p.length;
+        var next = new int[n];
+        for (int i = 1, cnt = 0; i < n; i++) {
+            while (cnt != 0 && p[i] != p[cnt]) cnt = next[cnt - 1];
+            if (p[i] == p[cnt]) cnt++;
+            next[i] = cnt;
         }
         return next;
     }
