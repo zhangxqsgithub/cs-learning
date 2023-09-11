@@ -15,7 +15,7 @@ public class P481MagicalString {
     
     public int magicalString(int n) {
         var ms = new StringBuilder("122");
-        int idx = 2, s = 1, cnt = 1;
+        int idx = 2, s = 1, cnt = 0;
         while (ms.length() < n) {
             var r = ms.charAt(idx) - '0';
             ms.append(String.valueOf(s).repeat(r));
