@@ -5,7 +5,7 @@ package alg.leetcode;
  * @author zhangxq
  * @since 2023/9/12
  */
-public class P482PredictTheWinner {
+public class P486PredictTheWinner {
     
     public static void main(String[] args) {
     
