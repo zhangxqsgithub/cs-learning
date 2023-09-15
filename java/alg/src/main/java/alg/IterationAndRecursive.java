@@ -29,4 +29,18 @@ public class IterationAndRecursive {
         System.out.print(arr[idx] + ",");
         rec(arr, idx + 1);
     }
+    public int add(int x) {
+        // 终止条件
+        if (x == 1) return 1;
+        // 递归调用
+        int res = add(x - 1);
+        // 返回结果
+        return x + res;
+    }
+    public int add(int n, int res) {
+        // 终止条件
+        if (n == 0) return res;
+        // 尾式递归
+        return add(n - 1, n + res);
+    }
 }
