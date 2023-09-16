@@ -4,20 +4,27 @@ package alg;
  * @author zhangxq
  * @since 2023/6/23
  */
-public class Pair<T1, T2> {
-    public T1 first;
-    public T2 second;
+public class Pair<K, V> {
     
-    public Pair() {
+    private final K key;
+    
+    private final V value;
+    
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
     }
     
-    public Pair(T1 first, T2 second) {
-        this.first = first;
-        this.second = second;
+    public K getKey() {
+        return key;
+    }
+    
+    public V getValue() {
+        return value;
     }
     
     @Override
     public String toString() {
-        return "{" + first + ", " + second + "}";
+        return key + "=";
     }
 }

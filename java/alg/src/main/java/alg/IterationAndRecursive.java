@@ -7,9 +7,6 @@ package alg;
 public class IterationAndRecursive {
     
     public static void main(String[] args) {
-        var solution = new IterationAndRecursive();
-        solution.it(new int[]{1, 2, 3, 4});
-        solution.rec(new int[]{1, 2, 3, 4});
     }
     // 迭代
     public void it(int[] arr) {

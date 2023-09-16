@@ -3,6 +3,7 @@ package alg.acwing_course.algbase;
 import alg.Pair;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,18 +34,18 @@ public class C1_08SegmentsMerge {
     //    右端点和 cur 的右端点较大者；
     //    若需要处理的区间 i 的左端点不在当前区间内，则将当前区间赋值为 i 区间；
     public List<Pair<Integer, Integer>> merge(List<Pair<Integer, Integer>> segs) {
-        segs.sort((a, b) -> Integer.compare(a.first, b.first));
+        segs.sort(Comparator.comparingInt(Pair::getKey));
         var res = new ArrayList<Pair<Integer, Integer>>();
         // 当前区间在一个不存在的区间内
         int st = Integer.MAX_VALUE, ed = Integer.MIN_VALUE;
         for (var seg : segs) {
-            if (ed == Integer.MIN_VALUE || seg.first <= ed) { // 在当前区间内
-                st = Math.min(st, seg.first);
-                ed = Math.max(ed, seg.second);
+            if (ed == Integer.MIN_VALUE || seg.getKey() <= ed) { // 在当前区间内
+                st = Math.min(st, seg.getKey());
+                ed = Math.max(ed, seg.getValue());
             }
             else { // 找到一个新的区间
                 res.add(new Pair<>(st, ed));
-                st = seg.first; ed = seg.second;
+                st = seg.getKey(); ed = seg.getValue();
             }
         }
         // 将最后一个区间加入到结果数组
