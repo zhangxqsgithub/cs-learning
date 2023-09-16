@@ -8,12 +8,9 @@ public class BinarySearch {
     
     public static void main(String[] args) {
         var solution = new BinarySearch();
-        var nums = new int[]{1, 2, 4, 6, 99, 100, 120, 140, 199, 358, 999, 1001};
-        for (int i = 0; i < 2_000; i++) {
-            var res = solution.bs2(nums, i);
-            System.out.println(i + ":" + res);
-            assert res == -1 || i == nums[res];
-        }
+        var nums = new int[]{1, 2, 4, 6, 99, 100, 100, 120, 140, 199, 358, 999, 1001};
+        var res1 = solution.binarySearchLowerBound(nums, 1002);
+        System.out.println(res1);
     }
     
     public int bs(int[] nums, int target) {
@@ -93,6 +90,23 @@ public class BinarySearch {
         // 未找到 target ，返回插入点 l
         // 下标 l 会指向 >= target 的第一个数字
         // 下标 r 会指向 <= target 的最后一个数字
+        return l;
+    }
+    
+    // [1, 3, 7, 7, 8]
+    /**
+     * 包含重复元素
+     */
+    public int binarySearchLowerBound(int[] nums, int target) {
+        // 之所以 r=nums.length，是因为若整个数组的数字都严格小于 target，
+        // 则 >= target 的第一个下标应该是超过数组下标的第一个数字。
+        // 即，若数组 nums 有 10 个元素，则结果应该是 10。
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] < target) l = mid + 1;
+            else r = mid;
+        }
         return l;
     }
 }

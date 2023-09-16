@@ -39,8 +39,8 @@ public class C1_2BinarySearch {
      * 如果存在, 则返回相应的索引index。否则, 返回arr的元素个数 n
      *
      * 二分查找，l 下标收敛到 >= target 的第一个下标中。
-     * 当遇到严格小于 target 的时候，可以直接放弃左半部分的值；遇到 arr[mid] >= target 的时候说明 arr[mid] 之前
-     * 可能还有 >= target 值的下标存在，所以设置 r = mid;
+     * 当遇到严格小于 target 的时候，可以直接放弃左半部分的值；
+     * 遇到 arr[mid] >= target 的时候说明 arr[mid] 之前可能还有 >= target 值的下标存在，所以设置 r = mid;
      * 这样即使 [l, mid - 1] 之间不存在 >= target 值的下标，arr[mid] 也是满足条件的。
      * 所以，此二分一定收敛到 l = r 或 l + 1 = r 的两种情况中，当 l = r 是就结束了。
      * 情况 1：arr[l] == arr[r] 且 arr[l] >= target; mid 的值为 l; r = mid; 则会收敛到 l = r 的情况。
