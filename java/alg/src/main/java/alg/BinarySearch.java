@@ -74,4 +74,25 @@ public class BinarySearch {
         // 未找到目标元素，返回 -1
         return -1;
     }
+    
+    /* 二分查找插入点（无重复元素） */
+    int binarySearchInsertionSimple(int[] nums, int target) {
+        int l = 0, r = nums.length - 1; // 初始化双闭区间 [0, n-1]
+        while (l <= r) {
+            int m = l + (r - l) / 2;  // 计算中点索引 m
+            if (nums[m] < target) {
+                l = m + 1;            // target 在区间 [m+1, j] 中
+            }
+            else if (nums[m] > target) {
+                r = m - 1;            // target 在区间 [i, m-1] 中
+            }
+            else {
+                return m;             // 找到 target ，返回插入点 m
+            }
+        }
+        // 未找到 target ，返回插入点 l
+        // 下标 l 会指向 >= target 的第一个数字
+        // 下标 r 会指向 <= target 的最后一个数字
+        return l;
+    }
 }
