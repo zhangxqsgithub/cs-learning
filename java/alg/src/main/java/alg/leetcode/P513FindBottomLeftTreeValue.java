@@ -15,19 +15,19 @@ public class P513FindBottomLeftTreeValue {
         dfs(root, 1);
         return bfv;
     }
-    int maxLevel = 0;
+    int maxDepth = 0;
     int bfv = 0;
-    public void dfs(TreeNode root, int level) {
+    public void dfs(TreeNode root, int depth) {
         if (root == null) return;
         // 若遇到叶节点（左下角的节点一定是叶节点）
         if (root.left == null && root.right == null) {
-            if (level > maxLevel) {
-                maxLevel = level;
+            if (depth > maxDepth) {
+                maxDepth = depth;
                 bfv = root.val;
             }
         }
-        dfs(root.left, level + 1);
-        dfs(root.right, level + 1);
+        dfs(root.left, depth + 1);
+        dfs(root.right, depth + 1);
     }
     
     class TreeNode {
