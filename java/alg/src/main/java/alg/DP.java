@@ -27,9 +27,12 @@ public class DP {
     }
     
     public int fib3(int n) {
+        // 1. dp 数组定义
         int[] dp = new int[n + 1];
+        // 2. 初始化
         dp[1] = 1;
         dp[2] = 1;
+        // 3. 状态转移方程
         for (int i = 3; i <= n; i++) {
             int res = dp[i - 1] + dp[i - 2];
             dp[i] = res;
