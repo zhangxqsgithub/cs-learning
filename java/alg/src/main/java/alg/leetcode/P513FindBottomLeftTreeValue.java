@@ -13,7 +13,7 @@ public class P513FindBottomLeftTreeValue {
     
     public int findBottomLeftValue(TreeNode root) {
         dfs(root, 1);
-        return 0;
+        return bfv;
     }
     int maxLevel = 0;
     int bfv = 0;
