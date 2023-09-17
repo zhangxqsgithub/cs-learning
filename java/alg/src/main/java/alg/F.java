@@ -17,4 +17,10 @@ public class F {
         for (int num : nums) max = Math.max(max, num);
         return max;
     }
+    
+    public static void swap(int[] nums, int a, int b) {
+        int t = nums[a];
+        nums[a] = nums[b];
+        nums[b] = t;
+    }
 }
