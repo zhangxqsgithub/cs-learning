@@ -23,4 +23,30 @@ public class F {
         nums[a] = nums[b];
         nums[b] = t;
     }
+    
+    /**
+     * 返回有序数组 nums 中 <= target 的第一个值
+     */
+    public static int lowerBound(int[] nums, int target) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] < target) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
+    
+    /**
+     * 返回有序数组 nums 中 <  target 的第一个值
+     */
+    public static int upperBound(int[] nums, int target) {
+        int l = 0, r = nums.length;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] <= target) l = mid + 1;
+            else r = mid;
+        }
+        return l;
+    }
 }
