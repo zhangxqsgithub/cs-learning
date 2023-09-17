@@ -18,9 +18,9 @@ public class P508MostFrequentSubtreeSum {
     
     public int[] findFrequentTreeSum(TreeNode root) {
         dfs(root);
-        var res = new int[list.get(list.size() - 1).size()];
-        for (int i = 0; i < list.get(list.size() - 1).size(); i++) {
-            res[i] = list.get(list.size() - 1).get(i);
+        var res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            res[i] = list.get(i);
         }
         return res;
     }
@@ -33,15 +33,19 @@ public class P508MostFrequentSubtreeSum {
         count(sum);
         return sum;
     }
+    int maxCount = 0;
     Map<Integer, Integer> map = new HashMap<>();
-    List<List<Integer>> list = new ArrayList<>();
+    List<Integer> list = new ArrayList<>();
     private void count(int num) {
         map.put(num, map.getOrDefault(num, 0) + 1);
         
         int count = map.get(num);
-        int idx = count - 1;
-        if (list.size() < count) list.add(new ArrayList<>());
-        list.get(idx).add(num);
+        if (count == maxCount) list.add(num);
+        else if (count > maxCount) {
+            maxCount = count;
+            list = new ArrayList<>();
+            list.add(num);
+        }
     }
     class TreeNode {
         int val;
