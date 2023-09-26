@@ -8,8 +8,6 @@ package alg.leetcode;
 public class P530MinimumAbsoluteDifferenceInBst {
     
     public static void main(String[] args) {
-        var a = new Integer[]{543,,652,null,445,null,699};
-        384, 445, 543, 652, 699
     }
     
     Integer pre;
