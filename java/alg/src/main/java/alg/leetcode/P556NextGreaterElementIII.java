@@ -15,28 +15,23 @@ public class P556NextGreaterElementIII {
         System.out.println(res1);
     }
     
-    public int nextGreaterElement(int n) {
-        var s = String.valueOf(n).toCharArray();
-        for (int i = s.length - 1; i > 0; i--) {
-            if (s[i] - '0' > s[i - 1] - '0') {
-                // 找到比 s[i - 1] 大的最小的值
-                int j = i;
-                while (j + 1 < s.length && s[j + 1] - '0' > s[i - 1] - '0') j++;
-                var t = s[i - 1]; s[i - 1] = s[j]; s[j] = t;
-                // 将后面的序列反转一遍
-                reverse(s, i, s.length - 1);
-                var num = Long.parseLong(String.valueOf(s));
-                if (num > Integer.MAX_VALUE) return -1;
-                else return (int) num;
-            }
-        }
-        return -1;
-    }
-    private void reverse(char[] arr, int i, int j) {
-        while (i < j) {
-            var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
-            i++; j--;
-        }
+    public int nextGreaterElement(int num) {
+        var s = String.valueOf(num).toCharArray();
+        // 找到第一个升序的位置
+        int k = s.length - 1;
+        while (k > 0 && s[k - 1] >= s[k]) k--;
+        if (k == 0) return -1;
+        // [k, n) 中找到一个 > s[k - 1] 的最小值
+        int t = k;
+        while (t + 1 < s.length && s[t + 1] > s[k - 1]) t++;
+        // swap(k - 1, t)
+        var tmp = s[k - 1]; s[k - 1] = s[t]; s[t] = tmp;
+        // reverse(k, n - 1)
+        int i = k, j = s.length - 1;
+        while (i < j) { var _t = s[i]; s[i] = s[j]; s[j] = _t; i++; j--; }
+        long res = Long.parseLong(String.valueOf(s));
+        if (res > Integer.MAX_VALUE) return -1;
+        return (int) res;
     }
     
     /**
