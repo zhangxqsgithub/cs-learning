@@ -14,7 +14,7 @@ public class P572SubtreeOfAnotherTree {
     /**
      * 树的 hash 函数
      */
-    int P = 131, Q = 159, MOD = (int) 10e7 + 7;
+    int P = 131, Q = 159, MOD = (int) 1e7 + 7;
     int T = -1; // 初始化的 hash 值
     boolean ans = false;
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
