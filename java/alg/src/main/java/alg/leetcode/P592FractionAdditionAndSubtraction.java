@@ -12,7 +12,7 @@ public class P592FractionAdditionAndSubtraction {
     }
     
     public String fractionAddition(String expression) {
-        int a = 0, b = 1, offset = 0;
+        int a = 0, b = 1;
         if (expression.charAt(0) != '-') expression = "+" + expression;
         for (int i = 1; i < expression.length(); i++) {
             int start = i;
