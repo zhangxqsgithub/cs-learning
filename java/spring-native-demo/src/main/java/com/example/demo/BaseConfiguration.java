@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
  * @since 2022/12/9
  */
 @Configuration
-public class A {
+public class BaseConfiguration {
     
     @Bean
     public RestTemplate restTemplate() {
