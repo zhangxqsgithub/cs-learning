@@ -17,8 +17,8 @@ public class P771JewelsAndStones {
      * 使用 HashSet 保存 jewels 中的每一个字符
      */
     public int numJewelsInStones(String jewels, String stones) {
-        if (jewels == null || jewels.length() == 0) return 0;
-        if (stones == null || stones.length() == 0) return 0;
+        if (jewels == null || jewels.isEmpty()) return 0;
+        if (stones == null || stones.isEmpty()) return 0;
         
         Set<Character> set = new HashSet<>();
         for (int i = 0; i < jewels.length(); i++) {
@@ -36,8 +36,8 @@ public class P771JewelsAndStones {
     private int count = 0;
     // 二分
     public int numJewelsInStones2(String jewels, String stones) {
-        if (jewels == null || jewels.length() == 0) return 0;
-        if (stones == null || stones.length() == 0) return 0;
+        if (jewels == null || jewels.isEmpty()) return 0;
+        if (stones == null || stones.isEmpty()) return 0;
     
         set = new HashSet<>(jewels.length());
         for (int i = 0; i < jewels.length(); i++) {
