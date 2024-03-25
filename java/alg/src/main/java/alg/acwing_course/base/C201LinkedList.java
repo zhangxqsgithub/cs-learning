@@ -9,7 +9,7 @@ import java.util.List;
  * @author zhangxq
  * @since 2023/6/23
  */
-public class C2_01LinkedList {
+public class C201LinkedList {
     
     public static void main(String[] args) {
         var solution = new SingleLinkedList();

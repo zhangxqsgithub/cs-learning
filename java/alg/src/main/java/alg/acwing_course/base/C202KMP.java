@@ -7,7 +7,7 @@ import java.util.List;
  * @author zhangxq
  * @since 2023/6/29
  */
-public class C2_02KMP {
+public class C202KMP {
     
     public static void main(String[] args) {
     

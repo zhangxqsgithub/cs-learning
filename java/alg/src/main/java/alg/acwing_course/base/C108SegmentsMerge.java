@@ -12,10 +12,10 @@ import java.util.List;
  * @author zhangxq
  * @since 2023/6/23
  */
-public class C1_08SegmentsMerge {
+public class C108SegmentsMerge {
     
     public static void main(String[] args) {
-        var solution = new C1_08SegmentsMerge();
+        var solution = new C108SegmentsMerge();
         var segs = new ArrayList<Pair<Integer, Integer>>();
         segs.add(new Pair<>(1, 2));
         segs.add(new Pair<>(2, 3));

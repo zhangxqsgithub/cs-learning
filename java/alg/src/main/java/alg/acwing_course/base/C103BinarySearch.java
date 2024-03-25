@@ -6,10 +6,10 @@ package alg.acwing_course.base;
  * @author zhangxq
  * @since 2023/6/19
  */
-public class C1_2BinarySearch {
+public class C103BinarySearch {
     
     public static void main(String[] args) {
-        var solution = new C1_2BinarySearch();
+        var solution = new C103BinarySearch();
         var arr = new int[]{1, 2, 3, 5, 6, 7, 8, 9};
         // var res = solution.binarySearch(arr, -1);
         // System.out.println(res);
