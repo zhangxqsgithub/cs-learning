@@ -13,8 +13,14 @@ public class C101QuickSort {
     public static void main(String[] args) {
         var solution = new C101QuickSort();
         var arr = new int[]{3, 1, 4, 2, 5,};
-        solution.quickSort2(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
+        // solution.quickSort2(arr, 0, arr.length - 1);
+        // System.out.println(Arrays.toString(arr));
+        // solution.quickSort3(arr, 0, arr.length - 1);
+        // System.out.println(Arrays.toString(arr));
+        
+        arr = new int[]{179, 21, 70, 5, 5};
+        solution.nok(arr, 0, arr.length - 1, 2);
+        System.out.println(arr[1]);
     }
     
     /**
@@ -66,9 +72,60 @@ public class C101QuickSort {
             do j--; while (arr[j] > pivot); // j 指针会停在 <= pivot 的数字上
             if (i < j) swap(arr, i, j);
         }
-        // 这里要取 j 的原因是，若取 i，则会死循环例 [1, 2]
         quickSort2(arr, l, j);
         quickSort2(arr, j + 1, r);
+    }
+    
+    public void quickSort3(int[] arr, int l, int r) {
+        if (l >= r) return;
+        int pivot = arr[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            do i++; while (arr[i] < pivot);
+            do j--; while (arr[j] > pivot);
+            if (i < j) swap(arr, i, j);
+        }
+        quickSort3(arr, l, i);
+        quickSort3(arr, i + 1, r);
+    }
+    
+    /**
+     * 死循环了！
+     * arr = [1, 2], l = 0, r = 1
+     * 1: pivot = 1, i = -1, j = 2;
+     *               i = 0,  j = 0;
+     *    quickSort4(arr, 0, -1)
+     *    quickSort4(arr, 0, 1) // 这里死循环了
+     */
+    public void quickSort4(int[] arr, int l, int r) {
+        if (l >= r) return;
+        int pivot = arr[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            do i++; while (arr[i] < pivot);
+            do j--; while (arr[j] > pivot);
+            if (i < j) swap(arr, i, j);
+        }
+        quickSort4(arr, l, i - 1);
+        quickSort4(arr, i, r);
+    }
+    
+    /**
+     * 第 k 个数
+     * @link https://www.acwing.com/problem/content/788/
+     * 请用快速选择算法求出数列从小到大排序后的第 k 个数。
+     * 第 k 个数在数组 k - 1 位置上，例如第 1 个数所在的下标为 0。
+     * 时间复杂度 n
+     */
+    public void nok(int[] arr, int l, int r, int k) {
+        if (l >= r) return;
+        int pivot = arr[l], i = l - 1, j = r + 1;
+        while (i < j) {
+            while (arr[++i] < pivot);
+            while (arr[--j] > pivot);
+            if (i < j) swap(arr, i, j);
+        }
+        // 判断第 k 个数是在哪个区间里
+        if (k <= j + 1) nok(arr, l, j, k);
+        else nok(arr, j + 1, r, k);
     }
     
     public void swap(int[] arr, int a, int b) {
