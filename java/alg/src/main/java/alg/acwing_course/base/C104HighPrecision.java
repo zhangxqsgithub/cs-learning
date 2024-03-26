@@ -37,6 +37,9 @@ public class C104HighPrecision {
         return res;
     }
     
+    /**
+     * y 总的简洁版
+     */
     public List<Integer> add2(List<Integer> num1, List<Integer> num2) {
         int n = Math.max(num1.size(), num2.size());
         var res = new ArrayList<Integer>(n);
