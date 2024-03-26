@@ -31,10 +31,14 @@ public class C102MergeSort {
         merge(arr, l, mid, r);
     }
     
+    /**
+     * 将 arr 的 [l, mid], [mid + 1, r] 的两个部分按序合并起来。
+     */
     public void merge(int[] arr, int l, int mid, int r) {
         var tmp = new int[r - l + 1];
         int i = l, j = mid + 1, k = 0;
         while (i <= mid && j <= r) tmp[k++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
+        // 复制剩下的部分
         while (i <= mid) tmp[k++] = arr[i++];
         while (j <= r) tmp[k++] = arr[j++];
         for (int p = 0; p < tmp.length; p++) arr[l + p] = tmp[p];
