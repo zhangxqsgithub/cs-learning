@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author zhangxq
  * @since 2023/6/20
  */
-public class C104PrefixSum {
+public class C105PrefixSum {
     
     public static void main(String[] args) {
         var sum = new Sum();

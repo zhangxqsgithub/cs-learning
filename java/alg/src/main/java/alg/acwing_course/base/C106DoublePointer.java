@@ -10,10 +10,10 @@ import java.util.stream.Collectors;
  * @author zhangxq
  * @since 2023/6/20
  */
-public class C105DoublePointer {
+public class C106DoublePointer {
     
     public static void main(String[] args) {
-        var solution = new C105DoublePointer();
+        var solution = new C106DoublePointer();
         // solution.bit();
         
         solution.discretization();
