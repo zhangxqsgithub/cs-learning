@@ -24,6 +24,9 @@ public class C106DoublePointer {
         System.out.println(res1);
     }
     
+    /**
+     * 按照空格分割单词
+     */
     public void splitWord(String str) {
         for (int i = 0; i < str.length(); i++) {
             int j = i; // j 是第二个指针
