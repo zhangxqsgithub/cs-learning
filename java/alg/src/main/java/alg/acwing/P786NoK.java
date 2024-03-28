@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @link https://www.acwing.com/problem/content/submission/788/
  * @since 2024/3/26
  */
-public class P788NoK {
+public class P786NoK {
     
     static
     public class Main {

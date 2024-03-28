@@ -49,4 +49,19 @@ public class C106DoublePointer {
         }
         return res;
     }
+    
+    /**
+     * 最长连续不重复子序列
+     * @link https://www.acwing.com/problem/content/description/801/
+     */
+    public int doublePointer2(int[] arr) {
+        int res = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int j = i + 1;
+            while (j < arr.length && arr[j - 1] != arr[j] && arr[j - 1] < arr[j]) j++;
+            res = Math.max(res, j - i);
+            i = j - 1;
+        }
+        return res;
+    }
 }
