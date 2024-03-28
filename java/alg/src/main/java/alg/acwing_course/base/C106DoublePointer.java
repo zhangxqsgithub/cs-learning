@@ -2,7 +2,15 @@ package alg.acwing_course.base;
 
 /**
  * 双指针
- *
+ * 核心思想：
+ * <blockquote><pre>
+ *     for (int i = 0; i < n; i++) {
+ *         for (int j = 0; j < m; j++) {
+ *             // 时间复杂度 O(n^2)
+ *         }
+ *     }
+ * </pre></blockquote>
+ * 将上面的朴素算法的时间复杂度优化到 O(n)。
  * @author zhangxq
  * @since 2023/6/20
  */
