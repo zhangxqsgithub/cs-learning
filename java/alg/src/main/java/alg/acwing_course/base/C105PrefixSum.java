@@ -86,6 +86,9 @@ public class C105PrefixSum {
         }
     }
     
+    /**
+     * 差分矩阵
+     */
     static class SubMatrix {
         int[][] matrix;
         public void sub(int[][] s) {
