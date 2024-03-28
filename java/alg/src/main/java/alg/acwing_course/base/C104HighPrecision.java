@@ -14,16 +14,21 @@ public class C104HighPrecision {
     public static void main(String[] args) {
         var solution = new C104HighPrecision();
         // 321 + 987
-        var res1 = solution.add2(Arrays.asList(1, 2, 3), Arrays.asList(7, 8, 9));
+        var res1 = solution.add2(List.of(1, 2, 3), List.of(7, 8, 9));
         System.out.println(res1);
         
         // 99876 - 99321
-        var res2 = solution.sub(Arrays.asList(6, 7, 8, 9, 9), Arrays.asList(1, 2, 3, 9, 9));
+        var res2 = solution.sub(List.of(6, 7, 8, 9, 9), List.of(1, 2, 3, 9, 9));
         System.out.println(res2);
         
         // 123 * 12 = 1476
-        var res3 = solution.multiply(Arrays.asList(3, 2, 1), 12);
+        var res3 = solution.multiply(List.of(3, 2, 1), 12);
         System.out.println(res3);
+        
+        // 13 / 3 = 4 余 1
+        var res4 = new ArrayList<Integer>();
+        var res5 = solution.div(List.of(3, 1), 3, res4);
+        System.out.println(res4.toString() + " " + res5);
     }
     
     public List<Integer> add(List<Integer> num1, List<Integer> num2) {
@@ -94,6 +99,9 @@ public class C104HighPrecision {
         return res;
     }
     
+    /**
+     * 乘法
+     */
     public List<Integer> multiply(List<Integer> num1, int num2) {
         var res = new ArrayList<Integer>();
         int c = 0; // 进位
@@ -103,6 +111,37 @@ public class C104HighPrecision {
         }
         if (c != 0) res.add(c);
         return res;
+    }
+    
+    /**
+     * 除法
+     * num1 / num2
+     * @param res 商
+     * @return 余数
+     */
+    public int div(List<Integer> num1, int num2, List<Integer> res) {
+        var r = 0;
+        // 从最高位开始计算
+        for (int i = num1.size() - 1; i >= 0; i--) {
+            r = r * 10 + num1.get(i);
+            res.add(r / num2);
+            r %= num2;
+        }
+        reverse(res);
+        // 去掉后面的 0
+        while (!res.isEmpty() && res.getLast() == 0) res.removeLast();
+        return r;
+    }
+    
+    public void reverse(List<Integer> list) {
+        for (int i = 0, j = list.size() - 1; i < j; i++, j--)
+            swap(list, i, j);
+    }
+    
+    public void swap(List<Integer> list, int a, int b) {
+        var t = list.get(a);
+        list.set(a, list.get(b));
+        list.set(b, t);
     }
     
 }
