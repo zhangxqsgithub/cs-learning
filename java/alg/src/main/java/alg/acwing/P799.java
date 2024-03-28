@@ -43,7 +43,7 @@ public class P799 {
         var res = 0;
         for (int i = 0, j = 0; i < arr.length; i++) {
             map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
-            while (j < i && map.containsKey(arr[i]) && map.get(arr[i]) > 1) {
+            while (j < i && map.get(arr[i]) > 1) {
                 map.put(arr[j], map.get(arr[j]) - 1);
                 j++;
             }

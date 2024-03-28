@@ -1,5 +1,7 @@
 package alg.acwing_course.base;
 
+import java.util.HashMap;
+
 /**
  * 双指针
  * 核心思想：
@@ -52,15 +54,17 @@ public class C106DoublePointer {
     
     /**
      * 最长连续不重复子序列
-     * @link https://www.acwing.com/problem/content/description/801/
      */
     public int doublePointer2(int[] arr) {
-        int res = 0;
-        for (int i = 0; i < arr.length; i++) {
-            int j = i + 1;
-            while (j < arr.length && arr[j - 1] != arr[j] && arr[j - 1] < arr[j]) j++;
-            res = Math.max(res, j - i);
-            i = j - 1;
+        var res = 0;
+        var map = new HashMap<Integer, Integer>(); // 记录数字出现的次数
+        for (int i = 0, j = 0; i < arr.length; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
+            while (j < i && map.get(arr[i]) > 1) {
+                map.put(arr[j], map.get(arr[j]) - 1);
+                j++;
+            }
+            res = Math.max(res, i - j + 1);
         }
         return res;
     }
