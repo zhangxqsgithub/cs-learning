@@ -18,8 +18,19 @@ public class C106DoublePointer {
     
     public static void main(String[] args) {
         var solution = new C106DoublePointer();
+        solution.splitWord("abc def ghi");
+        
         var res1 = solution.doublePointer(new int[]{1, 2, 3, 4, 6});
         System.out.println(res1);
+    }
+    
+    public void splitWord(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            int j = i; // j 是第二个指针
+            while (j < str.length() && str.charAt(j) != ' ') j++;
+            System.out.println(str.substring(i, j));
+            i = j + 1;
+        }
     }
     
     /**
