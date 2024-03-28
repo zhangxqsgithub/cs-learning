@@ -20,6 +20,10 @@ public class C104HighPrecision {
         // 99876 - 99321
         var res2 = solution.sub(Arrays.asList(6, 7, 8, 9, 9), Arrays.asList(1, 2, 3, 9, 9));
         System.out.println(res2);
+        
+        // 123 * 12 = 1476
+        var res3 = solution.multiply(Arrays.asList(3, 2, 1), 12);
+        System.out.println(res3);
     }
     
     public List<Integer> add(List<Integer> num1, List<Integer> num2) {
@@ -89,4 +93,16 @@ public class C104HighPrecision {
         while (!res.isEmpty() && res.getLast() == 0) res.removeLast();
         return res;
     }
+    
+    public List<Integer> multiply(List<Integer> num1, int num2) {
+        var res = new ArrayList<Integer>();
+        int c = 0; // 进位
+        for (int a : num1) {
+            res.add((a * num2 + c) % 10);
+            c = (a * num2 + c) / 10;
+        }
+        if (c != 0) res.add(c);
+        return res;
+    }
+    
 }
