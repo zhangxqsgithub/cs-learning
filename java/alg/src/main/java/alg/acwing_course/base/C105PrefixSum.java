@@ -56,7 +56,9 @@ public class C105PrefixSum {
         }
     }
     
-    // 二维前缀和
+    /**
+     * 二维前缀和
+     */
     static class SumMatrix {
         int[][] s;
         public void sumMatrix(int[][] matrix) {
@@ -74,7 +76,17 @@ public class C105PrefixSum {
         }
     }
     
-    // 差分 前缀和的逆运算
+    /**
+     * 差分
+     * 前缀和的逆运算（给定一个前缀和数组，求原数组）
+     * 给定一个数组 A 其中的元素为 a1, a2, a3, ..., an，求数组 B 其中的元素为 b1, b2, b3, ..., bn，
+     * 使得 ai = b1 + b2 + b3 + ... + bi 成立。
+     * 即 A 是 B 的前缀和数组。
+     *
+     * s[i] = s[i - 1] + arr[i - 1]
+     * arr[i] = s[i] - s[i - 1]
+     * 差分这里下标从 0 开始，则无需 i - 1
+     */
     static class Sub {
         int[] arr;
         public void sub(int[] s) {
