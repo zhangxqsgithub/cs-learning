@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 圆圈中最后剩下的数字
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/
  * @date 2022/7/22
  */

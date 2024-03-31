@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * 使用两个栈实现一个队列
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
  * @date 2022/6/29
  */

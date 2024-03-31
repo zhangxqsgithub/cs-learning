@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 连续子数组的最大和
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
  * @date 2022/7/18
  */

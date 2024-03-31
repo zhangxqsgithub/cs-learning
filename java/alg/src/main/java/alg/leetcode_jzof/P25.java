@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 合并两个排序的链表
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
  * @date 2022/7/18
  */

@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 火柴拼正方形
  *
- * @author zail
+ * @author will
  * @link <a href="https://leetcode.cn/problems/matchsticks-to-square/">火柴拼正方形</a>
  * @date 2022/6/1
  */

@@ -1,7 +1,7 @@
 package alg.leetcode_jzof;
 
 /**
- * @author zail
+ * @author will
  * @date 2022/7/21
  */
 public class P66 {

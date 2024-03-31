@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 矩阵中的路径
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/ju-zhen-zhong-de-lu-jing-lcof/
  * @date 2022/7/19
  */

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * 从尾到头打印链表
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/
  * @date 2022/6/30
  */

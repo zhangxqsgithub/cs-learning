@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 0 ~ n-1 中缺失的数字
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/que-shi-de-shu-zi-lcof/
  * @date 2022/7/17
  */

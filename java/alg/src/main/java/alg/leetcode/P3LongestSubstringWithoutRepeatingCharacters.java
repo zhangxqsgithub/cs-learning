@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * 无重复字符的最长子串
  *
- * @author zail
+ * @author will
  * @link <a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">无重复字符的最长子串</a>
  * @date 2022/5/27
  */

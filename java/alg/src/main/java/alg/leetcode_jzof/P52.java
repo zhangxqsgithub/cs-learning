@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 两个链表的第一个公共节点
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
  * @date 2022/7/18
  */

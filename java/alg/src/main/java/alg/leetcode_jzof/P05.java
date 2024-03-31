@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 替换空格
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/ti-huan-kong-ge-lcof/
  * @date 2022/7/4
  */

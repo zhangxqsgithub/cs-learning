@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * 数组中重复的数字
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
  * @date 2022/7/17
  */

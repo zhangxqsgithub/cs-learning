@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 树的子结构
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shu-de-zi-jie-gou-lcof/
  * @date 2022/7/17
  */

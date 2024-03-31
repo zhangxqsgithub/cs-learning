@@ -4,7 +4,7 @@ package alg.leetcode_jzof;
  * 在排序数组中查找数字 I
  * 统计数字在数组中出现的次数
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
  * @date 2022/7/17
  */

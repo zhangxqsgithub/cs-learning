@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 斐波那契数列
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof/
  * @date 2022/7/18
  */

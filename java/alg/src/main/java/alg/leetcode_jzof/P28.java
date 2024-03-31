@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 对称的二叉树
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/dui-cheng-de-er-cha-shu-lcof/
  * @date 2022/7/17
  */

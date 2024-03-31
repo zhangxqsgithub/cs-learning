@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * 二叉树的深度
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-cha-shu-de-shen-du-lcof/
  * @date 2022/7/21
  */

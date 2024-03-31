@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 把数字翻译成字符串
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/
  * @date 2022/7/18
  */

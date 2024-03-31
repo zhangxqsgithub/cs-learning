@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 二叉树的镜像
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/
  * @date 2022/7/17
  */

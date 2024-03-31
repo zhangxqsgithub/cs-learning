@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 左旋转字符串
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/
  * @date 2022/7/4
  */

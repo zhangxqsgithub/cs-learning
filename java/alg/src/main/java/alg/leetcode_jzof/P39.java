@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 数组中出现次数超过一半的数字
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
  * @date 2022/7/21
  */

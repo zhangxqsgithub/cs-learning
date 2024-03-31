@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 股票的最大利润
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/gu-piao-de-zui-da-li-run-lcof/
  * @date 2022/7/18
  */

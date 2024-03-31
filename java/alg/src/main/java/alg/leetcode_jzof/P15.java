@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 二进制中 1 的个数
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/
  * @date 2022/7/21
  */

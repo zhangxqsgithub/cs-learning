@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 数值的整数次方
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shu-zhi-de-zheng-shu-ci-fang-lcof/
  * @date 2022/7/21
  */

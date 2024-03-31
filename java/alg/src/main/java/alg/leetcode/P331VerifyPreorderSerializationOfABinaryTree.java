@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * 验证二叉树前序序列化
  * </a>
  *
- * @author zail
+ * @author will
  * @date 2021/5/25
  */
 public class P331VerifyPreorderSerializationOfABinaryTree {

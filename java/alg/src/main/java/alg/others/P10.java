@@ -10,7 +10,7 @@ import java.util.LinkedList;
  * max(arr[i...j]) 是 arr 的子数组 arr[i] ~ arr[j] 的最大值
  * min(arr[i...j]) 是 arr 的子数组 arr[i] ~ arr[j] 的最小值
  *
- * @author zail
+ * @author will
  * @date 2022/6/30
  */
 public class P10 {

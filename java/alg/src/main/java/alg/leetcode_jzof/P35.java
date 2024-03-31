@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * 复杂链表的复制
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/
  * @date 2022/6/30
  */

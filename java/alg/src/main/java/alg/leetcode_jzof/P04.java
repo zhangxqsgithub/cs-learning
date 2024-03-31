@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 二维数组中的查找
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
  * @date 2022/7/17
  */

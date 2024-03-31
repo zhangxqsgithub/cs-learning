@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 机器人的运动范围
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
  * @date 2022/7/19
  */

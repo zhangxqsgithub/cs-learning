@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 青蛙跳台阶问题
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/qing-wa-tiao-tai-jie-wen-ti-lcof/
  * @date 2022/7/18
  */

@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 删除链表的节点
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shan-chu-lian-biao-de-jie-dian-lcof/
  * @date 2022/7/18
  */

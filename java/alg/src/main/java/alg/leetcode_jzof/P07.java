@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 import java.util.HashMap;
 
 /**
- * @author zail
+ * @author will
  * @date 2022/7/21
  */
 public class P07 {

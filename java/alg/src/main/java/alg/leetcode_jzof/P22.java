@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 链表中倒数第 k 个节点
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
  * @date 2022/7/18
  */

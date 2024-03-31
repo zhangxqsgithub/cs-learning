@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 反转链表
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/fan-zhuan-lian-biao-lcof/
  * @date 2022/6/30
  */

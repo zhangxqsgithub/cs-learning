@@ -3,7 +3,7 @@ package alg.leetcode;
 /**
  * 两数相加
  *
- * @author zail
+ * @author will
  * @link <a href="https://leetcode.cn/problems/add-two-numbers/">两数相加</a>
  * @date 2022/5/27
  */

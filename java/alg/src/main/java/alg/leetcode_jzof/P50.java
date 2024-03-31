@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * 第一个只出现依次的字符
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu-lcof/
  * @date 2022/7/17
  */

@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 最小的 k 个数
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/
  * @date 2022/7/21
  */

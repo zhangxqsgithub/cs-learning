@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 数组中数字出现的次数
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/
  * @date 2022/7/21
  */

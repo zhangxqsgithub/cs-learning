@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 剪绳子
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/jian-sheng-zi-lcof/
  * @date 2022/7/22
  */

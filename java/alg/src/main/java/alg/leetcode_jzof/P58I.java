@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 翻转单词顺序
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/
  * @date 2022/7/19
  */

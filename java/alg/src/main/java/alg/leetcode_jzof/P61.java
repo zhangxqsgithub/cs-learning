@@ -7,7 +7,7 @@ import java.util.Set;
 /**
  * 扑克牌中的顺子
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/bu-ke-pai-zhong-de-shun-zi-lcof/
  * @date 2022/7/20
  */

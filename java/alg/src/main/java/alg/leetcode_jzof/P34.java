@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * 二叉树中和为某一值的路径
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-cha-shu-zhong-he-wei-mou-yi-zhi-de-lu-jing-lcof/
  * @date 2022/7/19
  */

@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 二叉搜索树的后序遍历序列
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-cha-sou-suo-shu-de-hou-xu-bian-li-xu-lie-lcof/
  * @date 2022/7/21
  */

@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 /**
- * @author zail
+ * @author will
  * @date 2022/6/30
  */
 public class MaxWindow {

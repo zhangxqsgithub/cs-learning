@@ -1,7 +1,7 @@
 package alg.leetcode;
 
 /**
- * @author zail
+ * @author will
  * @date 2022/5/27
  */
 public class P1711FindClosestIcci {

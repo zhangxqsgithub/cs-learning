@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 二叉搜索树与双向链表
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/er-cha-sou-suo-shu-yu-shuang-xiang-lian-biao-lcof/
  * @date 2022/7/19
  */

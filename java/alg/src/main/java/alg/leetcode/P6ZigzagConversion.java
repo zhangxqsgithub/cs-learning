@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Z 字形变换
  *
- * @author zail
+ * @author will
  * @link <a href="https://leetcode.cn/problems/zigzag-conversion/">Z 字形变换</a>
  * @date 2022/5/27
  */

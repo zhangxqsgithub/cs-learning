@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 礼物的最大价值
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/
  * @date 2022/7/18
  */

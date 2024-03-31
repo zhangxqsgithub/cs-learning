@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * 把数组排程最小的数
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/
  * @date 2022/7/20
  */

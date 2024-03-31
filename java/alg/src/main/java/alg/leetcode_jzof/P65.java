@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 不用加减乘除做加法
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/
  * @date 2022/7/21
  */

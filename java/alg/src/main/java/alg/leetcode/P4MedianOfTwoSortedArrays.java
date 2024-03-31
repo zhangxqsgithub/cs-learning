@@ -3,7 +3,7 @@ package alg.leetcode;
 /**
  * 寻找两个正序数组的中位数
  *
- * @author zail
+ * @author will
  * @link <a href="https://leetcode.cn/problems/median-of-two-sorted-arrays/">寻找两个正序数组的中位数</a>
  * @date 2022/5/27
  */

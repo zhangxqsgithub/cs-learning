@@ -3,7 +3,7 @@ package alg.leetcode_jzof;
 /**
  * 旋转数组的最小数字
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
  * @date 2022/7/17
  */

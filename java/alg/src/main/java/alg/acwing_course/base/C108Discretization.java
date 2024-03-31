@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 /**
  * 离散化
+ * 情况：值域比较大，例如 0 ～ 10^9，但是数字的个数比较少。
+ * 有些题目，可能将出现的值用作下标来处理。
  * @author will
  * @since 2024/3/28
  */

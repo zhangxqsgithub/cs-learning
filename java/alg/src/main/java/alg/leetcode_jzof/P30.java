@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * 包含 min 函数的栈
  *
- * @author zail
+ * @author will
  * @link https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
  * @date 2022/6/29
  */
