@@ -7,7 +7,12 @@ import java.util.stream.Collectors;
 /**
  * 离散化
  * 情况：值域比较大，例如 0 ～ 10^9，但是数字的个数比较少。
- * 有些题目，可能将出现的值用作下标来处理。
+ * 有些题目，可能将出现的值用作下标来处理。为了节约内存开销，不选择开一个 10^9 长度的数组。
+ * 因此将这些数字映射到从 0 开始的连续的多个自然数上。
+ * arr[] = {1, 3, 10, 100, 2_000, 50_000}
+ * dis[] = {0, 1, 2,  3,   4,     5} // 离散化后数组
+ * 1. arr 中可能有重复元素，如何去重？（arr 数组需要去重，若存在重复数字则不能完成一对一映射）
+ * 2. 如何快速计算出 arr[i] 离散化后的值是多少？（利用二分算法查找）
  * @author will
  * @since 2024/3/28
  */
@@ -32,9 +37,10 @@ public class C108Discretization {
             for (int x : arr) l.add(x);
             // 排序 + 去重
             list = l.stream().distinct().sorted().collect(Collectors.toList());
+            // 求前缀和数组
             s = new ArrayList<>();
             s.add(0);
-            for (int x : arr) s.add(s.get(s.size() - 1) + x); // 求前缀和数组
+            for (int x : arr) s.add(s.get(s.size() - 1) + x);
         }
         
         // 求 [a, b] 数值区间内，存在于 list 数组中的数字总和。
