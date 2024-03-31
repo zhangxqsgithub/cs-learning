@@ -47,6 +47,10 @@ public class C107BitwiseOperation {
         return res;
     }
     
+    /**
+     * lowbit 算法（树状数组的基本操作）
+     * 返回数字 x 的二进制表示中，仅保留最后一位 1 所代表的数字。
+     */
     public int lowbit(int x) {
         return x & -x;
     }
