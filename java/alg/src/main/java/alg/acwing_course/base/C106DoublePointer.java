@@ -68,4 +68,18 @@ public class C106DoublePointer {
         }
         return res;
     }
+    
+    /**
+     * 匹配子序列
+     */
+    public void doublePointer3(int[] arr1, int[] arr2) {
+        int m = arr1.length, n = arr2.length;
+        int i = 0, j = 0;
+        while (i < m && j < n) {
+            if (arr1[i] == arr2[j]) i++;
+            j++;
+        }
+        if (i == m) System.out.println("Yes");
+        else System.out.println("No");
+    }
 }
