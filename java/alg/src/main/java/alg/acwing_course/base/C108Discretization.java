@@ -54,18 +54,17 @@ public class C108Discretization {
         // 二分求出 x 对应的离散化的值
         // 找出第一个 >= x 值的下标
         public int find(int x) {
-            int l = 0, r = list.size();
+            int l = 0, r = list.size() - 1;
             while (l != r) {
                 int mid = l + (r - l) / 2;
-                if (list.get(mid) < x) l = mid + 1;
-                else r = mid;
+                if (list.get(mid) >= x) r = mid;
+                else l = mid + 1;
             }
-            return l;
+            return r + 1;
         }
         
         public int get(int l, int r) {
-            l++;
-            r++;
+            l++; r++;
             return s.get(r) - s.get(l - 1);
         }
     }
