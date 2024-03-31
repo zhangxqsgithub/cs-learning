@@ -90,8 +90,8 @@ public class PolygonUtils {
     }
     
     /*
-      判断点 P 是否在 由 A B C 三个点组成的三角形中。这里使用的是 叉乘法
-      InsideTriangle decides if a point P is Inside of the triangle
+      判断点 P802 是否在 由 A B C 三个点组成的三角形中。这里使用的是 叉乘法
+      InsideTriangle decides if a point P802 is Inside of the triangle
       defined by A, B, C.
     */
     public static boolean insideTriangle(long Ax, long Ay,
