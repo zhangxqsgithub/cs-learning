@@ -25,6 +25,38 @@ public class C108Discretization {
         var sum = new Sum(arr);
         // 求数组 arr 中的所有数字在区间 [4, 100] 内的总和。
         sum.query(4, 100);
+        
+        System.out.println("------ Discretization ------");
+        var discretization = new Discretization(1, 100, 100, 2, 5000, 3000);
+        System.out.println(discretization);
+    }
+    
+    /**
+     * 离散化
+     * 例：
+     * 第 1 个数 + 100
+     * 第 100 个数 +2
+     * 第 5000 个数 + 3000
+     */
+    static class Discretization {
+        // 离散化后的数组
+        List<Integer> disc;
+        public Discretization(int... nums) {
+            List<Integer> l = new ArrayList<>();
+            List<Integer> v = new ArrayList<>();
+            for (int i = 0; i < nums.length; i+=2) {
+                int x = nums[i], c = nums[i + 1];
+                l.add(x); v.add(c);
+            }
+            disc = new ArrayList<>();
+            disc.add(0);
+            l = l.stream().distinct().sorted().collect(Collectors.toList());
+            for (int i = 0; i < l.size(); i++) disc.add(v.get(i));
+        }
+        @Override
+        public String toString() {
+            return disc.toString();
+        }
     }
     
     // 例 离散化数组求区间和
