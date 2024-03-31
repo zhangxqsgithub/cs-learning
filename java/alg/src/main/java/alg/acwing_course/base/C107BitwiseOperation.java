@@ -30,6 +30,9 @@ public class C107BitwiseOperation {
         solution.printBinary(-48);
         
         System.out.println(solution.countOneBinary(48));
+        
+        // 10 - lowbit(10) = 8
+        System.out.println("10 - lowbit(10) = " + (10 - solution.lowbit(10)));
     }
     
     public void printBinary(int x) {
