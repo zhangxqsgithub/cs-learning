@@ -33,25 +33,26 @@ public class C108Discretization {
     
     /**
      * 离散化
-     * 例：
-     * 第 1 个数 + 100
-     * 第 100 个数 +2
-     * 第 5000 个数 + 3000
      */
     static class Discretization {
         // 离散化后的数组
         List<Integer> disc;
         public Discretization(int... nums) {
-            List<Integer> l = new ArrayList<>();
-            List<Integer> v = new ArrayList<>();
-            for (int i = 0; i < nums.length; i+=2) {
-                int x = nums[i], c = nums[i + 1];
-                l.add(x); v.add(c);
+            var list = new ArrayList<Integer>();
+            for (int num : nums) list.add(num);
+            disc = list.stream().distinct().sorted().collect(Collectors.toList());
+        }
+        /**
+         * 找到 >= x 的第一个值的下标
+         */
+        public int query(int x) {
+            int l = 0, r = disc.size() - 1;
+            while (l < r) {
+                int mid = l + (r - l) / 2;
+                if (disc.get(mid) < x) l = mid + 1;
+                else r = mid;
             }
-            disc = new ArrayList<>();
-            disc.add(0);
-            l = l.stream().distinct().sorted().collect(Collectors.toList());
-            for (int i = 0; i < l.size(); i++) disc.add(v.get(i));
+            return r + 1;
         }
         @Override
         public String toString() {
