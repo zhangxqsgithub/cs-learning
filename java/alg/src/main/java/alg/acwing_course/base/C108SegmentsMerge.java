@@ -34,18 +34,20 @@ public class C108SegmentsMerge {
     //    右端点和 cur 的右端点较大者；
     //    若需要处理的区间 i 的左端点不在当前区间内，则将当前区间赋值为 i 区间；
     public List<Pair<Integer, Integer>> merge(List<Pair<Integer, Integer>> segs) {
-        segs.sort(Comparator.comparingInt(Pair::getKey));
+        segs.sort(Comparator.comparingInt(Pair::getFirst));
         var res = new ArrayList<Pair<Integer, Integer>>();
         // 当前区间在一个不存在的区间内
         int st = Integer.MAX_VALUE, ed = Integer.MIN_VALUE;
         for (var seg : segs) {
-            if (ed == Integer.MIN_VALUE || seg.getKey() <= ed) { // 在当前区间内
-                st = Math.min(st, seg.getKey());
-                ed = Math.max(ed, seg.getValue());
+            if (ed == Integer.MIN_VALUE || seg.getFirst() <= ed) { // 在当前区间内
+                st = Math.min(st, seg.getFirst());
+                ed = Math.max(ed, seg.getSecond());
             }
             else { // 找到一个新的区间
+                // 将之前寻找到的区间添加到结果集中
                 res.add(new Pair<>(st, ed));
-                st = seg.getKey(); ed = seg.getValue();
+                st = seg.getFirst();
+                ed = seg.getSecond();
             }
         }
         // 将最后一个区间加入到结果数组
