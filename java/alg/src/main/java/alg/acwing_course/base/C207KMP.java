@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * KMP 算法
  * @author zhangxq
  * @since 2023/6/29
  */
-public class C202KMP {
+public class C207KMP {
     
     public static void main(String[] args) {
     
