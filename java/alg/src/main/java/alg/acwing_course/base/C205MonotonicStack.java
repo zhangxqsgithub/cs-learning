@@ -50,4 +50,16 @@ public class C205MonotonicStack {
         return res;
     }
     
+    // 单调栈
+    // 找出每个数左边离它最近的比它大/小的数
+    public void mono2(int[] arr) {
+        var stk = new Stack<Integer>();
+        stk.push(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            int cur = arr[i];
+            while (!stk.empty() && stk.pop() < cur) {}
+            stk.push(cur);
+        }
+    }
+    
 }
