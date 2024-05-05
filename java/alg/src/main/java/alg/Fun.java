@@ -4,7 +4,7 @@ package alg;
  * @author zhangxq
  * @since 2023/9/17
  */
-public class F {
+public class Fun {
     
     public static int min(int... nums) {
         int min = Integer.MAX_VALUE;
