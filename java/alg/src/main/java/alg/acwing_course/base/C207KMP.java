@@ -11,17 +11,9 @@ import java.util.List;
 public class C207KMP {
     
     public static void main(String[] args) {
-    
-    }
-    
-    public int[] next(String p) {
-        var next = new int[p.length()];
-        for (int i = 1, j = 0; i < p.length(); i++) {
-            while (j > 0 && p.charAt(i) != p.charAt(j)) j = next[j - 1];
-            if (p.charAt(i) == p.charAt(j)) j++;
-            next[i] = j;
-        }
-        return next;
+        var solution = new C207KMP();
+        var res = solution.kmp("xxAabbc", "ab");
+        System.out.println(res);
     }
     
     public List<Integer> kmp(String s, String p) {
@@ -37,5 +29,15 @@ public class C207KMP {
             }
         }
         return res;
+    }
+    
+    private int[] next(String p) {
+        var next = new int[p.length()];
+        for (int i = 1, j = 0; i < p.length(); i++) {
+            while (j > 0 && p.charAt(i) != p.charAt(j)) j = next[j - 1];
+            if (p.charAt(i) == p.charAt(j)) j++;
+            next[i] = j;
+        }
+        return next;
     }
 }
