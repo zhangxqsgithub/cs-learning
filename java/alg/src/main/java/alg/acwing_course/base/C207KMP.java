@@ -12,7 +12,7 @@ public class C207KMP {
     
     public static void main(String[] args) {
         var solution = new C207KMP();
-        var res = solution.kmp("xxAabbc", "ab");
+        var res = solution.kmp("BBC ABCDAB ABCDABCDABDE", "ABCDABD");
         System.out.println(res);
     }
     
