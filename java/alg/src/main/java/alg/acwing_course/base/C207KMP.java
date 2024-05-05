@@ -12,8 +12,25 @@ public class C207KMP {
     
     public static void main(String[] args) {
         var solution = new C207KMP();
-        var res = solution.kmp("BBC ABCDAB ABCDABCDABDE", "ABCDABD");
-        System.out.println(res);
+        var res1 = solution.search("BBC ABCDAB ABCDABCDABDE", "ABCDABD");
+        System.out.println(res1);
+        
+        var res2 = solution.kmp("BBC ABCDAB ABCDABCDABDE", "ABCDABD");
+        System.out.println(res2);
+    }
+    
+    /**
+     * 暴力搜索
+     */
+    public List<Integer> search(String s, String p) {
+        int n = s.length(), m = p.length();
+        var res = new ArrayList<Integer>();
+        for (int i = 0; i < n; i++) {
+            int j = 0;
+            while (j < m && s.charAt(i + j) == p.charAt(j)) j++;
+            if (j == m) res.add(i);
+        }
+        return res;
     }
     
     public List<Integer> kmp(String s, String p) {
@@ -40,4 +57,7 @@ public class C207KMP {
         }
         return next;
     }
+    
+    
+    
 }

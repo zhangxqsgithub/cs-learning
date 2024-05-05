@@ -23,21 +23,20 @@ public class KMP {
         System.out.println(indexes);
     }
     
-    // 暴力搜索字符串
-    public int strSearch(String text, String pattern) {
-        int n = text.length(), m = pattern.length();
+    /**
+     * 暴力匹配
+     */
+    public List<Integer> search(String s, String p) {
+        int n = s.length(), m = p.length();
+        var res = new ArrayList<Integer>();
         for (int i = 0; i < n; i++) {
-            boolean flag = true;
-            for (int j = 0; j < m; j++) {
-                if (text.charAt(i + j) != pattern.charAt(j)) {
-                    flag = false;
-                    break;
-                }
-            }
-            // 找到
-            if (flag) return i;
+            var j = 0;
+            // 匹配字符串 s 和 p 的相同字符
+            while (j < m && s.charAt(i + j) == p.charAt(j)) j++;
+            // 匹配成功
+            if (j == m) res.add(i);
         }
-        return -1;
+        return res;
     }
     
     public List<Integer> kmpSearch(String text, String pattern) {
