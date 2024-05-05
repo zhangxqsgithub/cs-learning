@@ -36,14 +36,16 @@ public class C207KMP {
     
     public List<Integer> kmp(String s, String p) {
         var res = new ArrayList<Integer>();
+        // 求 next 数组
         var next = next(p);
+        // i 记录字符串 s 的下标， j 记录字符串 p 的下标
         for (int i = 0, j = 0; i < s.length(); i++) {
             while (j > 0 && s.charAt(i) != p.charAt(j)) j = next[j - 1];
             if (s.charAt(i) == p.charAt(j)) j++;
             // 匹配成功
             if (j == p.length()) {
                 j = next[j - 1];
-                
+                // 记录已经匹配的结果下标
                 res.add(i - p.length() + 1);
             }
         }
