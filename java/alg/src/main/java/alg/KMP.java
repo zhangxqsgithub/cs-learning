@@ -5,11 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 参考 https://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
+ * 原理直接看阮一峰的博客。
+ * https://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
  * KMP 算法是字符串搜索算法，即给定一个很长的文本 text 和需要搜索的关键字 pattern，在 text 中搜索 pattern
  * 出现的位置，并返回所有出现位置的开始下标，即返回一个 int 数组。
- *
- *
  */
 public class KMP {
     
