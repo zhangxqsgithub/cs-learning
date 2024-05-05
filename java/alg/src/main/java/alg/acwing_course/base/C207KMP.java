@@ -39,6 +39,7 @@ public class C207KMP {
         for (int i = 0, j = 0; i < s.length(); i++) {
             while (j > 0 && s.charAt(i) != p.charAt(j)) j = next[j - 1];
             if (s.charAt(i) == p.charAt(j)) j++;
+            // 匹配成功
             if (j == p.length()) {
                 j = next[j - 1];
                 
@@ -48,16 +49,19 @@ public class C207KMP {
         return res;
     }
     
+    /**
+     * next 数组
+     */
     private int[] next(String p) {
         var next = new int[p.length()];
+        // j 指针记录前缀字符串和后缀字符串共同字符的数量
         for (int i = 1, j = 0; i < p.length(); i++) {
             while (j > 0 && p.charAt(i) != p.charAt(j)) j = next[j - 1];
             if (p.charAt(i) == p.charAt(j)) j++;
+            // p[1, j] = p[i - j + 1, i] 两段字符相等
             next[i] = j;
         }
         return next;
     }
-    
-    
     
 }
