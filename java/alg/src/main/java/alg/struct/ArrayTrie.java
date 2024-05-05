@@ -51,9 +51,7 @@ public class ArrayTrie {
         
         public boolean contain(char c) {
             int index = c - 'a';
-            if (0 <= index && index < 26) {
-                return child[index] != null;
-            }
+            if (0 <= index && index < 26) return child[index] != null;
             else return false;
         }
         
