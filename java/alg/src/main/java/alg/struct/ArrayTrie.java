@@ -13,11 +13,9 @@ public class ArrayTrie {
     
     public void insert(String word) {
         TrieNode cur = root;
-        for (int i = 0; i < word.length(); ++i) {
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
-            if (!cur.contain(c)) {
-                cur.set(c);
-            }
+            if (!cur.contain(c)) cur.set(c);
             cur = cur.get(c);
         }
         cur.setEnd(true);
@@ -34,7 +32,7 @@ public class ArrayTrie {
     
     private TrieNode searchTrieNode(String word) {
         TrieNode cur = root;
-        for (int i = 0; i < word.length(); ++i) {
+        for (int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
             if (!cur.contain(c)) return null;
             cur = cur.get(c);
