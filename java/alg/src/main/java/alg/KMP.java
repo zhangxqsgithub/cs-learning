@@ -17,6 +17,23 @@ public class KMP {
         System.out.println(indexes);
     }
     
+    // 暴力搜索字符串
+    public int strSearch(String text, String pattern) {
+        int n = text.length(), m = pattern.length();
+        for (int i = 0; i < n; i++) {
+            boolean flag = true;
+            for (int j = 0; j < m; j++) {
+                if (text.charAt(i + j) != pattern.charAt(j)) {
+                    flag = false;
+                    break;
+                }
+            }
+            // 找到
+            if (flag) return i;
+        }
+        return -1;
+    }
+    
     public List<Integer> kmpSearch(String text, String pattern) {
         List<Integer> res = new ArrayList<>();
         int[] prefixTable = prefixTable(pattern);
@@ -55,6 +72,7 @@ public class KMP {
         prefixTable[0] = -1;
     }
     
+    // 前缀数组
     private int[] prefixTable(String pattern) {
         int n = pattern.length();
         int[] prefixTable = new int[n];
@@ -81,56 +99,7 @@ public class KMP {
         return prefixTable;
     }
     
-    // y 总的 KMP
-    public void kmpSearch2(String text, String pattern) {
-        List<Integer> res = new ArrayList<>();
-        int n = text.length(), m = pattern.length();
-        // 求 next 数组
-        int[] next = next(pattern);
-        // 匹配
-        // i 从 1 开始的原因
-        // 因为在匹配时，j 指针需要移动到 next[j + 1] 的位置上，也就是 j = next[j + 1]
-        // 所以提前把 next 数组按序往前移动一位。
-        for (int i = 1, j = 0; i <= n; i++) {
-            // j 没有回到起点，并且 s[i] != p[j + 1]
-            while (j != 0 && text.charAt(i) != pattern.charAt(j + 1)) j = next[j];
-            if (text.charAt(i) == pattern.charAt(j + 1)) j++;
-            if (j == m) {
-                j = next[j];
-                
-                // 匹配成功后的逻辑
-                res.add(i - m + 1);
-            }
-        }
-    }
     
-    // next 数组
-    public int[] next(String p) {
-        int[] next = new int[p.length() + 1];
-        for (int i = 2, j = 0; i <= p.length(); i++) {
-            // i 要和 j + 1 匹配
-            while (j != 0 && p.charAt(i) != p.charAt(j + 1)) j = next[j];
-            if (p.charAt(i) == p.charAt(j + 1)) j++;
-            next[i] = j;
-        }
-        return next;
-    }
     
-    // 暴力搜索字符串
-    public int strSearch(String text, String pattern) {
-        int n = text.length(), m = pattern.length();
-        for (int i = 0; i < n; i++) {
-            boolean flag = true;
-            for (int j = 0; j < m; j++) {
-                if (text.charAt(i + j) != pattern.charAt(j)) {
-                    flag = false;
-                    break;
-                }
-            }
-            // 找到
-            if (flag) return i;
-        }
-        return -1;
-    }
     
 }
