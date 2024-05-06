@@ -23,32 +23,25 @@ public class UnionFind {
         count = n;
         parent = new int[n];
         // 先是每一个元素都是自己为一组
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-        }
+        for (int i = 0; i < n; i++) parent[i] = i;
     }
     
-    public int find(int p) {
+    /**
+     * 返回 x 的祖宗节点，并且路经压缩
+     */
+    public int find(int x) {
         // 如果要找的元素不是头元素，则向上查找
-        while (p != parent[p]) {
-            parent[p] = parent[parent[p]];
-            p = parent[p];
-        }
-        return p;
+        while (x != parent[x]) x = find(parent[x]);
+        return x;
     }
     
     public void union(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP == rootQ) return;
-        parent[rootP] = rootQ;
+        parent[find(p)] = find(q);
         count--;
     }
     
     public boolean isConnected(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        return rootP == rootQ;
+        return find(p) == find(q);
     }
     
     public int count() {
