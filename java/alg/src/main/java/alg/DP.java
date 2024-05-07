@@ -1,6 +1,13 @@
 package alg;
 
 /**
+ * 动态规划五步法：
+ * 1. 确定 DP 子问题
+ * 2. DP 数组定义
+ * 3. DP 方程
+ * 4. 初始化 DP 数组
+ * 5. 结果
+ *
  * @author zhangxq
  * @since 2023/9/17
  */

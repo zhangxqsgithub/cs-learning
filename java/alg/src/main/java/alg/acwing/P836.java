@@ -1,4 +1,4 @@
-package alg.acwing_course.base;
+package alg.acwing;
 
 import java.util.Scanner;
 
