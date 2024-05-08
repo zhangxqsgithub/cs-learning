@@ -33,10 +33,9 @@ public class P3 {
             for (int j = 1; j <= m; j++) {
                 // 不选
                 dp[i][j] = dp[i - 1][j];
-                int cnt = 1, t = j;
-                while ((t -= v[i - 1]) >= 0) {
+                // 选 1 ～ n 个
+                for (int cnt = 1; j - cnt * v[i - 1] >= 0; cnt++) {
                     dp[i][j] = Math.max(dp[i][j], dp[i][j - cnt * v[i - 1]] + cnt * w[i - 1]);
-                    cnt++;
                 }
             }
         }
