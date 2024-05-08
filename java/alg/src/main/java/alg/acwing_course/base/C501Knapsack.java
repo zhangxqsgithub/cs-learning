@@ -40,6 +40,10 @@ public class C501Knapsack {
      * 2. 选择第 i 件物品 dp[i][j] = dp[i - 1][j - v[i - 1]] + w[i - 1]
      * 初始化：dp[0][0] = 0 表示在没有选择人物物品的情况下，体积是0，最大总价值为 0。
      * 结果：dp[n][m]
+     *
+     * n 个物品 体积为 m 的情况下
+     * v[i] 表示第i个物品的体积
+     * w[i] 表示第i个物品的价值
      */
     public static int k(int n, int m, int[] v, int[] w) {
         var dp = new int[n + 1][m + 1];
