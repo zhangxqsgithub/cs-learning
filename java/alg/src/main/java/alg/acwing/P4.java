@@ -34,9 +34,8 @@ public class P4 {
         var dp = new int[n + 1][m + 1];
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= m; j++) {
-                dp[i][j] = dp[i - 1][j];
-                for (int cnt = 1; cnt <= s[i - 1] && j - cnt * v[i - 1] >= 0; cnt++) {
-                    dp[i][j] = Math.max(dp[i][j], dp[i][j - cnt * v[i - 1]] + cnt * w[i - 1]);
+                for (int cnt = 0; cnt <= s[i - 1] && j - cnt * v[i - 1] >= 0; cnt++) {
+                    dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - cnt * v[i - 1]] + cnt * w[i - 1]);
                 }
             }
         }
