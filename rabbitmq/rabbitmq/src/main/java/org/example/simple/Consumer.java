@@ -15,6 +15,7 @@ public class Consumer {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(5672);
+        factory.setVirtualHost("/test");
         factory.setUsername("guest");
         factory.setPassword("guest");
         try (

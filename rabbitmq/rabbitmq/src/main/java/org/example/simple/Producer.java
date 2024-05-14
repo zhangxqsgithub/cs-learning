@@ -20,12 +20,14 @@ public class Producer {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(5672);
+        factory.setVirtualHost("/test");
         factory.setUsername("guest");
         factory.setPassword("guest");
         try (
                 Connection connection = factory.newConnection();
                 Channel channel = connection.createChannel()
         ) {
+            // 声明一个队列，即在 RabbitMQ 中创建队列
             channel.queueDeclare(
                     QUEUE_NAME,  // 队列名称
                     false,       // 是否进行持久化

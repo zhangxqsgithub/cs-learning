@@ -17,6 +17,7 @@ public class RabbitMQUtils {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("127.0.0.1");
         factory.setPort(5672);
+        factory.setVirtualHost("/test");
         factory.setUsername("guest");
         factory.setPassword("guest");
         // 开启自动重连
