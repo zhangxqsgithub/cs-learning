@@ -49,9 +49,9 @@ public class P91 {
         // 遍历所有状态
         for (int stat = 1; stat < (1 << n); stat++) {
             for (int u = 0; u < n; u++) {
-                if ((stat >> u & 1) != 0) {
-                    for (int v = 0; v < n; v++) {
-                        if ((stat - (1 << u) >> v & 1) != 0) {
+                if ((stat >> u & 1) == 1) {
+                    for (int v = 0; v < n; v++) { // 计算 u 点到其他点的最短路径
+                        if ((stat - (1 << u) >> v & 1) == 1) {
                             dp[stat][u] = Math.min(
                                     dp[stat][u],
                                     dp[stat - (1 << u)][v] + dist[v][u]
