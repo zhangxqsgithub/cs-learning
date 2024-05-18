@@ -50,10 +50,12 @@ public class P91 {
         for (int stat = 1; stat < (1 << n); stat++) {
             for (int u = 0; u < n; u++) {
                 if ((stat >> u & 1) == 1) {
-                    for (int v = 0; v < n; v++) { // 计算 u 点到其他点的最短路径
-                        if ((stat - (1 << u) >> v & 1) == 1) {
+                    for (int v = 0; v < n; v++) { // 计算 u 点到 v 点的最短路径
+                        if ((stat - (1 << u) >> v & 1) == 1) { // v 点必须是访问过的点
                             dp[stat][u] = Math.min(
                                     dp[stat][u],
+                                    // 点 stat - (1 << u) 表示 stat 中没有 u 的状态结果
+                                    // 并且最后停留在 v 点上。
                                     dp[stat - (1 << u)][v] + dist[v][u]
                             );
                         }
