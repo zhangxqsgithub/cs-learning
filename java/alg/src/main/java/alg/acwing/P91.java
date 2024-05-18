@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class P91 {
     
     // 定义一个非常大的数，表示“无穷大”
-    private static final int INF = Integer.MAX_VALUE / 2;
+    private static final int INF = Integer.MAX_VALUE >> 1;
     
     public static void main(String[] args) {
         var sc = new Scanner(System.in);
@@ -38,8 +38,8 @@ public class P91 {
      * 4. 初始化：
      * 5. 结果：
      */
-    public static int tsp(int[][] dist) {
-        var n = dist.length;
+    public static int tsp(int[][] weight) {
+        var n = weight.length;
         var dp = new int[1 << n][n];
         
         // 初始化 dp 数组，所有值都设为无穷大
@@ -51,12 +51,12 @@ public class P91 {
             for (int u = 0; u < n; u++) {
                 if ((stat >> u & 1) == 1) {
                     for (int v = 0; v < n; v++) { // 计算 u 点到 v 点的最短路径
-                        if ((stat - (1 << u) >> v & 1) == 1) { // v 点必须是访问过的点
+                        if (u != v && (stat >> v & 1) == 1) { // v 点必须是访问过的点
                             dp[stat][u] = Math.min(
                                     dp[stat][u],
                                     // 点 stat - (1 << u) 表示 stat 中没有 u 的状态结果
                                     // 并且最后停留在 v 点上。
-                                    dp[stat - (1 << u)][v] + dist[v][u]
+                                    dp[stat - (1 << u)][v] + weight[v][u]
                             );
                         }
                     }
