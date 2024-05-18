@@ -31,11 +31,13 @@ public class P91 {
     
     /**
      * 1. dp 子问题：
-     * 2. dp 数组定义：
-     * 3. dp 方程：dp[stat][u] 使用 stat 中的二进制数字表示哪些点被用过，0 表示未使用 1
+     * 2. dp 数组定义：dp[stat][u] 使用 stat 中的二进制数字表示哪些点被用过，0 表示未使用 1
      *    表示已使用，u 表示最后停在第 u 个点上，状态为 mask 并且最后一个点停留在第 u 个点
      *    上的最短路径长度。
-     * 4. 初始化：
+     * 3. dp 方程：dp[stat][u] = min(dp[stat][u],
+     *            dp[stat - (1 << u)][v] + weight[v][u])
+     * 4. 初始化：dp[1][0] = 0，stat 为 1 表示只访问第 1 个点，并且最后停留在第 1 个点的
+     *    最短路径长度为 0。
      * 5. 结果：
      */
     public static int tsp(int[][] weight) {
@@ -50,7 +52,7 @@ public class P91 {
         for (int stat = 1; stat < (1 << n); stat++) {
             for (int u = 0; u < n; u++) {
                 if ((stat >> u & 1) == 1) {
-                    for (int v = 0; v < n; v++) { // 计算 u 点到 v 点的最短路径
+                    for (int v = 0; v < n; v++) { // 计算 v 点到 u 点的最短路径
                         if (u != v && (stat >> v & 1) == 1) { // v 点必须是访问过的点
                             dp[stat][u] = Math.min(
                                     dp[stat][u],
