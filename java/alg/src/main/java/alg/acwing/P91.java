@@ -49,7 +49,7 @@ public class P91 {
         // 从城市 0 开始，初始状态是只访问了城市 0
         dp[1][0] = 0;
         // 遍历所有状态
-        for (int stat = 1; stat < (1 << n); stat++) {
+        for (int stat = 2; stat < (1 << n); stat++) {
             for (int u = 0; u < n; u++) {
                 if ((stat >> u & 1) == 1) {
                     for (int v = 0; v < n; v++) { // 计算 v 点到 u 点的最短路径
