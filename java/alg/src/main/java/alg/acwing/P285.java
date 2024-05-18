@@ -36,7 +36,7 @@ public class P285 {
         nedge = new int[n + 1];
         dp = new int[n + 1][2];
         Arrays.fill(head, -1);
-        for (int i = 0; i < n; i++) happy[i] = sc.nextInt();
+        for (int i = 1; i <= n; i++) happy[i] = sc.nextInt();
         // 记录点是否有父节点
         var hasFather = new boolean[n + 1];
         for (int i = 0; i < n - 1; i++) {
