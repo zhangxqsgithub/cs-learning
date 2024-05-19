@@ -30,8 +30,7 @@ public class P905 {
         int p = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
             int l = intervals[i][0], r = intervals[i][1];
-            if (l <= p && p <= r) continue;
-            else {
+            if (!(l <= p && p <= r)) {
                 p = intervals[i][1];
                 res++;
             }
