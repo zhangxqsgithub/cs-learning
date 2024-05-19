@@ -18,6 +18,7 @@ public class P906 {
      * 2. 从前往后遍历每个区间，判断是否能将其放到某个现有的组内
      *    相当于判断上一个组中所有区间右端点的最大值 maxR，是否小于当前区间左端点 l，
      *    maxR < l 则无需分组；maxR >= l 则需要分组。
+     *    判断之前的某个组，这个组的 maxR < l
      */
     public static void main(String[] args) {
         var sc = new Scanner(System.in);
