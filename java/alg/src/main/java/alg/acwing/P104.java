@@ -20,7 +20,7 @@ public class P104 {
         Arrays.sort(arr);
         // 选择中间位置的点作为货仓
         int w = arr[n / 2];
-        long res = 0L;
+        int res = 0;
         for (int i = 0; i < n; i++) res += Math.abs(arr[i] - w);
         System.out.println(res);
     }
