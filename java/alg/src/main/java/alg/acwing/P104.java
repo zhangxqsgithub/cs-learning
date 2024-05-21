@@ -6,6 +6,9 @@ import java.util.Scanner;
 /**
  * 货仓选址
  *
+ * 扩展到二维 3167 题 https://www.acwing.com/problem/content/description/3170/
+ * 扩展到 D 维：需要用模拟退火算法。
+ *
  * @link https://www.acwing.com/problem/content/description/106/
  * @author will
  * @since 2024/5/21
