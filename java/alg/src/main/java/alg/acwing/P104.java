@@ -20,11 +20,27 @@ public class P104 {
         var n = sc.nextInt();
         var arr = new int[n];
         for (int i = 0; i < n; i++) arr[i] = sc.nextInt();
+        var res = address2(arr);
+        System.out.println(res);
+    }
+    
+    // 写法一
+    public static int address1(int[] arr) {
+        int n = arr.length;
         Arrays.sort(arr);
         // 选择中间位置的点作为货仓
         int w = arr[n / 2];
         int res = 0;
-        for (int i = 0; i < n; i++) res += Math.abs(arr[i] - w);
-        System.out.println(res);
+        for (int num : arr) res += Math.abs(num - w);
+        return res;
+    }
+    
+    // 写法二
+    public static int address2(int[] arr) {
+        int n = arr.length;
+        Arrays.sort(arr);
+        int res = 0;
+        for (int i = 0; i < n; i++) res += arr[i] - arr[i / 2];
+        return res;
     }
 }
