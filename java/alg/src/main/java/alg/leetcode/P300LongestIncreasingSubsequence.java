@@ -3,8 +3,9 @@ package alg.leetcode;
 import java.util.Arrays;
 
 /**
- * @link https://leetcode.cn/problems/longest-increasing-subsequence/
  * 最长递增子序列
+ *
+ * @link https://leetcode.cn/problems/longest-increasing-subsequence/
  */
 public class P300LongestIncreasingSubsequence {
     
@@ -29,12 +30,12 @@ public class P300LongestIncreasingSubsequence {
     
     /**
      * 动态规划
-     * 子问题： nums[0...i] 的最长递增子序列为：dp[0...i - 1] 中凡是小于 nums[i] 的最长递增子序列的最大者。
+     * dp 子问题：
+     * nums[0...i] 的最长递增子序列为：dp[0...i - 1] 中凡是小于 nums[i] 的最长递增子序列的最大者。
      * DP 数组定义： dp[i] 表示 nums[0...i] 的最长递增子序列的长度
-     * DP 方程：
-     * |         dp[i] = max(dp[i], if nums[i] > nums[0...i - 1]: dp[0...i - 1] + 1)
+     * DP 方程：dp[i] = max(dp[i], if nums[i] > nums[0...i - 1]: dp[0...i - 1] + 1)
      * DP 初始化： 每一个 nums[i] 作为单独的一个最长递增子序列，长度都为 1
-     * 结果： dp 数组中的最大值
+     * 结果：dp 数组中的最大值
      */
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
