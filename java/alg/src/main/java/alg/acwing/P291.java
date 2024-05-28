@@ -6,6 +6,9 @@ import java.util.Scanner;
  * 蒙德里安的梦想
  *
  * 状态压缩 DP
+ * 状态压缩动态规划是一种优化动态规划的方法，特别适用于某些特定类型的问题，这些问题的状
+ * 态可以用一个位掩码（bitmask）来表示。状态压缩通过利用位运算将多个状态信息压缩到一个
+ * 整数中，从而减少了状态空间的大小，提高了算法的效率。
  *
  * @link https://www.acwing.com/problem/content/293/
  * @author will
